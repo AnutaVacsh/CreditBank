@@ -1,54 +1,60 @@
 package ru.vaschenko.calculator.service;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import ru.vaschenko.calculator.dto.*;
+import ru.vaschenko.calculator.dto.CreditDto;
+import ru.vaschenko.calculator.dto.PaymentScheduleElementDto;
+import ru.vaschenko.calculator.dto.ScoringDataDto;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.UUID;
 
 @Slf4j
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CalculatorService {
-    BaseCalculatorService baseCalculatorService;
+  private final ScoringService scoringService;
 
-    public CreditDto calculateCredit(ScoringDataDto scoringData) {
-        log.info("Начинаем расчёт всех условий кредита");
-        // Расчет процентной ставки
-        BigDecimal rate = baseCalculatorService.calculateRate(scoringData);
+  /**
+   * Выполняет расчет условий кредита.
+   *
+   * @param scoringData данные для расчета условий кредита, включая сумму, срок, и дополнительные
+   *     параметры.
+   * @return {@link CreditDto} объект, содержащий рассчитанные параметры кредита.
+   */
+  public CreditDto calculateCredit(ScoringDataDto scoringData) {
+    log.debug("Starting the calculation of all credit conditions {}", scoringData.toString());
+    BigDecimal rate = scoringService.calculateRate(scoringData);
 
-        // Расчет полной суммы кредита (со строховкой)
-        BigDecimal totalAmount = baseCalculatorService.calculateTotalAmount(scoringData.getAmount(), scoringData.getIsInsuranceEnabled());
+    BigDecimal totalAmount =
+        scoringService.calculateTotalAmount(
+            scoringData.getAmount(), scoringData.getIsInsuranceEnabled());
 
-        // Расчет ежемесячного платежа
-        BigDecimal monthlyPayment = baseCalculatorService.calculateMonthlyPayment(totalAmount, rate, scoringData.getTerm());
+    BigDecimal monthlyPayment =
+        scoringService.calculateMonthlyPayment(totalAmount, rate, scoringData.getTerm());
 
-        // Расчёт полной суммы кредита
-        BigDecimal psk = baseCalculatorService.calculatePsk(totalAmount, monthlyPayment, scoringData.getTerm());
+    BigDecimal psk =
+        scoringService.calculatePsk(totalAmount, monthlyPayment, scoringData.getTerm());
 
-        // Расчет графика платежей
-        List<PaymentScheduleElementDto> paymentSchedule = baseCalculatorService.calculatePaymentSchedule(totalAmount, rate, scoringData.getTerm(), monthlyPayment);
+    List<PaymentScheduleElementDto> paymentSchedule =
+        scoringService.calculatePaymentSchedule(
+            totalAmount, rate, scoringData.getTerm(), monthlyPayment);
 
-        CreditDto creditDto = new CreditDto();
-        creditDto.setAmount(totalAmount);
-        creditDto.setTerm(scoringData.getTerm());
-        creditDto.setMonthlyPayment(monthlyPayment);
-        creditDto.setRate(rate);
-        creditDto.setPsk(psk);
-        creditDto.setIsInsuranceEnabled(scoringData.getIsInsuranceEnabled());
-        creditDto.setIsSalaryClient(scoringData.getIsSalaryClient());
-        creditDto.setPaymentSchedule(paymentSchedule);
+    CreditDto creditDto =
+        CreditDto.builder()
+            .amount(totalAmount)
+            .term(scoringData.getTerm())
+            .monthlyPayment(monthlyPayment)
+            .rate(rate)
+            .psk(psk)
+            .isInsuranceEnabled(scoringData.getIsInsuranceEnabled())
+            .isSalaryClient(scoringData.getIsSalaryClient())
+            .paymentSchedule(paymentSchedule)
+            .build();
 
-        log.info("Расчёт завершён");
-        return creditDto;
-    }
+    log.debug("The credit terms have been calculated {}", creditDto.toString());
+    return creditDto;
+  }
 }
-

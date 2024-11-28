@@ -1,20 +1,24 @@
 package ru.vaschenko.calculator.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.util.ReflectionTestUtils;
-import ru.vaschenko.calculator.dto.*;
+import ru.vaschenko.calculator.dto.CreditDto;
+import ru.vaschenko.calculator.dto.EmploymentDto;
+import ru.vaschenko.calculator.dto.PaymentScheduleElementDto;
+import ru.vaschenko.calculator.dto.ScoringDataDto;
+import ru.vaschenko.calculator.dto.enums.EmploymentStatus;
+import ru.vaschenko.calculator.dto.enums.Gender;
+import ru.vaschenko.calculator.dto.enums.MaritalStatus;
+import ru.vaschenko.calculator.dto.enums.Position;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
@@ -24,55 +28,73 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CalculatorServiceTest {
 
-    @Mock
-    private BaseCalculatorService baseCalculatorService;
+  @Mock private ScoringService scoringService;
 
-    @InjectMocks
-    CalculatorService calculatorService;
+  @InjectMocks CalculatorService calculatorService;
 
-    @Test
-    void calculateCredit() {
-        ScoringDataDto scoringData = new ScoringDataDto();
-        scoringData.setAmount(new BigDecimal(1000000));
-        scoringData.setTerm(24);
-        scoringData.setIsInsuranceEnabled(true);
-        scoringData.setIsSalaryClient(false);
+  @Test
+  void calculateCredit() {
+    ScoringDataDto scoringData =
+        ScoringDataDto.builder()
+            .employment(
+                EmploymentDto.builder()
+                    .employmentStatus(EmploymentStatus.SELF_EMPLOYED)
+                    .employerINN("7712345678")
+                    .salary(new BigDecimal(50000))
+                    .position(Position.MIDDLE_MANAGER)
+                    .workExperienceTotal(24)
+                    .workExperienceCurrent(12)
+                    .build())
+            .amount(new BigDecimal(1000000))
+            .term(24)
+            .maritalStatus(MaritalStatus.MARRIED)
+            .birthdate(LocalDate.of(1990, 5, 15))
+            .gender(Gender.MALE)
+            .isInsuranceEnabled(true)
+            .isSalaryClient(false)
+            .build();
 
-        when(baseCalculatorService.calculateRate(scoringData)).thenReturn(BigDecimal.valueOf(12));
+    when(scoringService.calculateRate(scoringData)).thenReturn(BigDecimal.valueOf(12));
 
-        when(baseCalculatorService.calculateTotalAmount(eq(new BigDecimal(1000000)), eq(true)))
-                .thenReturn(new BigDecimal(1100000));
+    when(scoringService.calculateTotalAmount(eq(new BigDecimal(1000000)), eq(true)))
+        .thenReturn(new BigDecimal(1100000));
 
-        when(baseCalculatorService.calculateMonthlyPayment(eq(new BigDecimal(1100000)), eq(new BigDecimal(12)), eq(24)))
-                .thenReturn(BigDecimal.valueOf(51781));
+    when(scoringService.calculateMonthlyPayment(
+            eq(new BigDecimal(1100000)), eq(new BigDecimal(12)), eq(24)))
+        .thenReturn(BigDecimal.valueOf(51781));
 
-        when(baseCalculatorService.calculatePsk(eq(new BigDecimal(1100000)), eq(new BigDecimal(51781)), eq(24)))
-                .thenReturn(new BigDecimal("12.98").setScale(2, RoundingMode.HALF_UP));
+    when(scoringService.calculatePsk(
+            eq(new BigDecimal(1100000)), eq(new BigDecimal(51781)), eq(24)))
+        .thenReturn(new BigDecimal("12.98").setScale(2, RoundingMode.HALF_UP));
 
-        when(baseCalculatorService.calculatePaymentSchedule(eq(new BigDecimal(1100000)), eq(new BigDecimal(12)), eq(24), eq(new BigDecimal(51781))))
-                .thenAnswer(invocation -> new ArrayList<PaymentScheduleElementDto>(Collections.nCopies(invocation.getArgument(2), new PaymentScheduleElementDto())));
+    when(scoringService.calculatePaymentSchedule(
+            eq(new BigDecimal(1100000)), eq(new BigDecimal(12)), eq(24), eq(new BigDecimal(51781))))
+        .thenAnswer(
+            invocation ->
+                new ArrayList<PaymentScheduleElementDto>(
+                    Collections.nCopies(
+                        invocation.getArgument(2), PaymentScheduleElementDto.builder().build())));
 
-        // Вызов тестируемого метода
-        CreditDto credit = calculatorService.calculateCredit(scoringData);
+    CreditDto credit = calculatorService.calculateCredit(scoringData);
 
-        // Проверка результата
-        assertNotNull(credit);
-        assertEquals(new BigDecimal(1100000), credit.getAmount());
-        assertEquals(24, credit.getTerm());
-        assertEquals(new BigDecimal(51781), credit.getMonthlyPayment());
-        assertEquals(new BigDecimal(12), credit.getRate());
+    assertNotNull(credit);
+    assertEquals(new BigDecimal(1100000), credit.getAmount());
+    assertEquals(24, credit.getTerm());
+    assertEquals(new BigDecimal(51781), credit.getMonthlyPayment());
+    assertEquals(new BigDecimal(12), credit.getRate());
 
-        assertEquals(new BigDecimal("12.98").setScale(2, RoundingMode.HALF_UP), credit.getPsk());
-        assertTrue(credit.getIsInsuranceEnabled());
-        assertFalse(credit.getIsSalaryClient());
-        assertNotNull(credit.getPaymentSchedule());
-        assertEquals(credit.getTerm(), credit.getPaymentSchedule().size());
+    assertEquals(new BigDecimal("12.98").setScale(2, RoundingMode.HALF_UP), credit.getPsk());
+    assertTrue(credit.getIsInsuranceEnabled());
+    assertFalse(credit.getIsSalaryClient());
+    assertNotNull(credit.getPaymentSchedule());
+    assertEquals(credit.getTerm(), credit.getPaymentSchedule().size());
 
-        // Проверка вызова методов
-        verify(baseCalculatorService).calculateRate(scoringData);
-        verify(baseCalculatorService).calculateTotalAmount(new BigDecimal(1000000), true);
-        verify(baseCalculatorService).calculateMonthlyPayment(new BigDecimal(1100000), new BigDecimal(12), 24);
-        verify(baseCalculatorService).calculatePsk(new BigDecimal(1100000), new BigDecimal(51781), 24);
-        verify(baseCalculatorService).calculatePaymentSchedule(new BigDecimal(1100000), new BigDecimal(12), 24, new BigDecimal(51781));
-    }
+    verify(scoringService).calculateRate(scoringData);
+    verify(scoringService).calculateTotalAmount(new BigDecimal(1000000), true);
+    verify(scoringService).calculateMonthlyPayment(new BigDecimal(1100000), new BigDecimal(12), 24);
+    verify(scoringService).calculatePsk(new BigDecimal(1100000), new BigDecimal(51781), 24);
+    verify(scoringService)
+        .calculatePaymentSchedule(
+            new BigDecimal(1100000), new BigDecimal(12), 24, new BigDecimal(51781));
+  }
 }

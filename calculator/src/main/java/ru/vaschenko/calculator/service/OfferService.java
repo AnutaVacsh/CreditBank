@@ -1,64 +1,83 @@
 package ru.vaschenko.calculator.service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.vaschenko.calculator.dto.LoanOfferDto;
 import ru.vaschenko.calculator.dto.LoanStatementRequestDto;
+import ru.vaschenko.calculator.dto.scoring.PreScoringInfoDTO;
+import ru.vaschenko.calculator.service.proveders.impl.DefaultScoringProvider;
+import ru.vaschenko.calculator.service.proveders.rules.impl.soft.InsuranceSoftPreScoringRule;
+import ru.vaschenko.calculator.service.proveders.rules.impl.soft.SalaryClientSoftPreScoringRule;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OfferService {
-    BaseCalculatorService baseCalculatorService;
+  private final ScoringService scoringService;
+  private final DefaultScoringProvider scoringProvider;
 
-    public List<LoanOfferDto> generateLoanOffers(LoanStatementRequestDto requestDto) {
-        log.info("Начинаем генерацию предложений по кредиту");
-        List<LoanOfferDto> offers = new ArrayList<>();
+  /**
+   * Генерирует список предложений по кредиту на основе запроса клиента.
+   *
+   * @param requestDto объект {@link LoanStatementRequestDto}
+   * @return список объектов {@link LoanOfferDto}, отсортированных по убыванию процентной ставки.
+   */
+  public List<LoanOfferDto> generateLoanOffers(LoanStatementRequestDto requestDto) {
+    log.debug("Starting the generation of loan offers {}", requestDto.toString());
 
-        boolean[][] combinations = {
-                {false, false}, {false, true}, {true, false}, {true, true}};
+    List<PreScoringInfoDTO> preScoringInfoDTOs = scoringProvider.preScoring();
 
-        for (boolean[] combination : combinations) {
-            LoanOfferDto offer = createOffer(requestDto, combination[0], combination[1]);
-            offers.add(offer);
-        }
-        log.info("Список предложений создан");
+    return generateLoanOffers(requestDto, preScoringInfoDTOs).stream()
+            .sorted((o1, o2) -> o2.getRate().compareTo(o1.getRate()))
+            .collect(Collectors.toList());
+  }
 
-        offers.sort(Comparator.comparing(LoanOfferDto::getRate).reversed());
+  /**
+   * Генерирует список предложений по кредиту на основе результатов прескоринга.
+   *
+   * @param requestDto объект {@link LoanStatementRequestDto}
+   * @param preScoringInfoDTOs список {@link PreScoringInfoDTO}
+   * @return список объектов {@link LoanOfferDto}
+   */
+  private List<LoanOfferDto> generateLoanOffers(
+      LoanStatementRequestDto requestDto, List<PreScoringInfoDTO> preScoringInfoDTOs) {
+    List<LoanOfferDto> loanOffers = new ArrayList<>();
+    BigDecimal rate;
+    BigDecimal totalAmount;
+    BigDecimal monthlyPayment;
 
-        log.info("Список предложений отсортирован");
-        return offers;
+    for (PreScoringInfoDTO preScoringInfoDTO : preScoringInfoDTOs) {
+      rate = preScoringInfoDTO.rateAndOtherScoringDto().newRate();
+      totalAmount =
+          requestDto.getAmount().add(preScoringInfoDTO.rateAndOtherScoringDto().otherService());
+      monthlyPayment =
+          scoringService.calculateMonthlyPayment(totalAmount, rate, requestDto.getTerm());
+
+      boolean isSalaryClient =
+          preScoringInfoDTO.rules().get(SalaryClientSoftPreScoringRule.class.getSimpleName());
+      boolean isInsuranceEnabled =
+          preScoringInfoDTO.rules().get(InsuranceSoftPreScoringRule.class.getSimpleName());
+
+      loanOffers.add(
+          LoanOfferDto.builder()
+              .statementId(UUID.randomUUID())
+              .requestedAmount(requestDto.getAmount())
+              .totalAmount(totalAmount)
+              .term(requestDto.getTerm())
+              .monthlyPayment(monthlyPayment)
+              .rate(rate)
+              .isInsuranceEnabled(isInsuranceEnabled)
+              .isSalaryClient(isSalaryClient)
+              .build());
     }
 
-    private LoanOfferDto createOffer(LoanStatementRequestDto requestDto, boolean isInsuranceEnabled, boolean isSalaryClient) {
-        // вычисляем ставку
-        BigDecimal rate = baseCalculatorService.calculateRate(isInsuranceEnabled, isSalaryClient);
-
-        // кредит + страховка
-        BigDecimal totalAmount = baseCalculatorService.calculateTotalAmount(requestDto.getAmount(), isInsuranceEnabled);
-
-        // вычисляем monthlyPayment
-        log.info("{} {} {}", totalAmount, rate, requestDto.getTerm());
-        BigDecimal monthlyPayment = baseCalculatorService.calculateMonthlyPayment(totalAmount, rate, requestDto.getTerm());
-
-        LoanOfferDto offer = new LoanOfferDto();
-        offer.setStatementId(UUID.randomUUID());
-        offer.setRequestedAmount(requestDto.getAmount());
-        offer.setTotalAmount(totalAmount);
-        offer.setTerm(requestDto.getTerm());
-        offer.setMonthlyPayment(monthlyPayment);
-        offer.setRate(rate);
-        offer.setIsInsuranceEnabled(isInsuranceEnabled);
-        offer.setIsSalaryClient(isSalaryClient);
-
-        log.info("Предложение создано");
-        return offer;
-    }
+    return loanOffers;
+  }
 }

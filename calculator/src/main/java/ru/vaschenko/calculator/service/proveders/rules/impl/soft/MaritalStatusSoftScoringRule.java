@@ -1,0 +1,38 @@
+package ru.vaschenko.calculator.service.proveders.rules.impl.soft;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import ru.vaschenko.calculator.dto.scoring.RateAndOtherScoringDto;
+import ru.vaschenko.calculator.dto.ScoringDataDto;
+import ru.vaschenko.calculator.service.proveders.rules.ScoringSoftRules;
+
+import java.math.BigDecimal;
+
+@Component
+public class MaritalStatusSoftScoringRule implements ScoringSoftRules {
+    @Value("${scoring.filters.soft.marital_status.single.change_rate}")
+    private BigDecimal changeRateValueSingleStatus;
+    @Value("${scoring.filters.soft.marital_status.married.change_rate}")
+    private BigDecimal changeRateValueMarriedStatus;
+
+    /**
+     * Рассчитывает изменение ставки на основе семейного положения.
+     *
+     * @param scoringDataDto объект {@link ScoringDataDto}, содержащий информацию о семейном положении.
+     * @return {@link RateAndOtherScoringDto} с изменением ставки.
+     */
+    @Override
+    public RateAndOtherScoringDto check(ScoringDataDto scoringDataDto) {
+        switch(scoringDataDto.getMaritalStatus()) {
+            case SINGLE -> {
+                return new RateAndOtherScoringDto(changeRateValueSingleStatus, BigDecimal.ZERO);
+            }
+            case MARRIED -> {
+                return new RateAndOtherScoringDto(changeRateValueMarriedStatus, BigDecimal.ZERO);
+            }
+            default -> {
+                return new RateAndOtherScoringDto(BigDecimal.ZERO, BigDecimal.ZERO);
+            }
+        }
+    }
+}

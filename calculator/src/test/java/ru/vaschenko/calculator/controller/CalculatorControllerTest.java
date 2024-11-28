@@ -1,114 +1,88 @@
 package ru.vaschenko.calculator.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import ru.vaschenko.calculator.dto.*;
-import ru.vaschenko.calculator.service.BaseCalculatorService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import ru.vaschenko.calculator.dto.CreditDto;
+import ru.vaschenko.calculator.dto.LoanOfferDto;
+import ru.vaschenko.calculator.dto.LoanStatementRequestDto;
+import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.service.CalculatorService;
 import ru.vaschenko.calculator.service.OfferService;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.eq;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-//import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.post;
-//import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.http.MediaType;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.Test;
+@ExtendWith(MockitoExtension.class)
+class CalculatorControllerTest {
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
+  @Mock private CalculatorService calculatorService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+  @Mock private OfferService offerService;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.BDDMockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+  @InjectMocks private CalculatorController calculatorController;
 
-@WebMvcTest
-public class CalculatorControllerTest {
+  @Test
+  void calculateLoanOffers() {
+    LoanStatementRequestDto requestDto =
+        LoanStatementRequestDto.builder().amount(new BigDecimal("100000")).term(12).build();
 
-    @Autowired
-    private MockMvc mockMvc;
+    LoanOfferDto loanOffer =
+        LoanOfferDto.builder()
+            .totalAmount(new BigDecimal("120000"))
+            .rate(new BigDecimal("7.5"))
+            .build();
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    when(offerService.generateLoanOffers(requestDto))
+        .thenReturn(Collections.singletonList(loanOffer));
 
-    @MockBean
-    private OfferService offerService;
+    ResponseEntity<List<LoanOfferDto>> response =
+        calculatorController.calculateLoanOffers(requestDto);
 
-    @MockBean
-    private BaseCalculatorService baseCalculatorService;
+    verify(offerService).generateLoanOffers(requestDto);
+    assertEquals(HttpStatus.OK, response.getStatusCode());
+    assertNotNull(response.getBody());
+    assertEquals(1, response.getBody().size());
+    assertEquals(new BigDecimal("120000"), response.getBody().get(0).getTotalAmount());
+  }
 
-    @MockBean
-    private CalculatorService calculatorService;
+  @Test
+  void calculateCredit() {
+    ScoringDataDto scoringData =
+        ScoringDataDto.builder()
+            .amount(new BigDecimal("100000"))
+            .term(12)
+            .isInsuranceEnabled(true)
+            .isSalaryClient(false)
+            .build();
 
-    @Autowired
-    private CalculatorController calculatorController;
+    CreditDto creditDto =
+        CreditDto.builder()
+            .amount(new BigDecimal("100000"))
+            .term(12)
+            .monthlyPayment(new BigDecimal("11000"))
+            .rate(new BigDecimal("12"))
+            .psk(new BigDecimal("15.5"))
+            .build();
 
-    @Test
-    public void givenLoanRequest() throws Exception {
-        LoanStatementRequestDto requestDto = new LoanStatementRequestDto();
-        List<LoanOfferDto> loanOfferDto = Collections.nCopies(4, new LoanOfferDto());
+    when(calculatorService.calculateCredit(scoringData)).thenReturn(creditDto);
 
-        when(offerService.generateLoanOffers(any(LoanStatementRequestDto.class))).thenReturn(loanOfferDto);
+    ResponseEntity<CreditDto> response = calculatorController.calculateCredit(scoringData);
 
-        mockMvc.perform(post("/calculator/offers")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(requestDto)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()").value(4));
-
-    }
-
-    @Test
-    void calculateCredit() throws Exception {
-        ScoringDataDto scoringData = new ScoringDataDto();
-        CreditDto creditDto = new CreditDto();
-
-        when(calculatorService.calculateCredit(any(ScoringDataDto.class))).thenReturn(creditDto);
-
-        mockMvc.perform(post("/calculator/calc")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(scoringData)))
-                .andExpect(status().isCreated());
-    }
+    verify(calculatorService).calculateCredit(scoringData);
+    assertEquals(HttpStatus.CREATED, response.getStatusCode());
+    assertNotNull(response.getBody());
+    assertEquals(new BigDecimal("100000"), response.getBody().getAmount());
+    assertEquals(new BigDecimal("11000"), response.getBody().getMonthlyPayment());
+  }
 }
