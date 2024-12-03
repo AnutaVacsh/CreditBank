@@ -1,12 +1,12 @@
 package ru.vaschenko.calculator.service.proveders.rules.impl.hard;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.dto.enums.EmploymentStatus;
 import ru.vaschenko.calculator.dto.scoring.RejectionAndMessageScoringDTO;
 import ru.vaschenko.calculator.service.proveders.rules.ScoringHardRules;
 
-@Component
+@Service
 public class WorkStatusHardScoringRule implements ScoringHardRules {
 
   /**

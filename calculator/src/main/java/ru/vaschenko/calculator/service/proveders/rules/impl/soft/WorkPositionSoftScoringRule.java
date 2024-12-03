@@ -1,14 +1,13 @@
 package ru.vaschenko.calculator.service.proveders.rules.impl.soft;
 
+import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import ru.vaschenko.calculator.dto.scoring.RateAndOtherScoringDto;
+import org.springframework.stereotype.Service;
 import ru.vaschenko.calculator.dto.ScoringDataDto;
+import ru.vaschenko.calculator.dto.scoring.RateAndOtherScoringDto;
 import ru.vaschenko.calculator.service.proveders.rules.ScoringSoftRules;
 
-import java.math.BigDecimal;
-
-@Component
+@Service
 public class WorkPositionSoftScoringRule implements ScoringSoftRules {
   @Value("${scoring.filters.soft.work_position.middle_manager.change_rate}")
   private BigDecimal changeRateValueMiddleManager;

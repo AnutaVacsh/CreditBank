@@ -1,14 +1,13 @@
 package ru.vaschenko.calculator.service.proveders.rules.impl.hard;
 
+import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.dto.scoring.RejectionAndMessageScoringDTO;
 import ru.vaschenko.calculator.service.proveders.rules.ScoringHardRules;
 
-import java.math.BigDecimal;
-
-@Component
+@Service
 public class AmountHardScoringRule implements ScoringHardRules {
   @Value("${scoring.filters.hard.loan_amount.count_salary}")
   private Integer countSalary;

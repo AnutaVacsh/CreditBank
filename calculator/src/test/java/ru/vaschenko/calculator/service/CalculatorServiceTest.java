@@ -60,15 +60,15 @@ class CalculatorServiceTest {
         .thenReturn(new BigDecimal(1100000));
 
     when(scoringService.calculateMonthlyPayment(
-            eq(new BigDecimal(1100000)), eq(new BigDecimal(12)), eq(24)))
+            new BigDecimal(1100000), new BigDecimal(12),(24)))
         .thenReturn(BigDecimal.valueOf(51781));
 
     when(scoringService.calculatePsk(
-            eq(new BigDecimal(1100000)), eq(new BigDecimal(51781)), eq(24)))
+            new BigDecimal(1100000), new BigDecimal(51781), 24))
         .thenReturn(new BigDecimal("12.98").setScale(2, RoundingMode.HALF_UP));
 
     when(scoringService.calculatePaymentSchedule(
-            eq(new BigDecimal(1100000)), eq(new BigDecimal(12)), eq(24), eq(new BigDecimal(51781))))
+            new BigDecimal(1100000), new BigDecimal(12), 24, new BigDecimal(51781)))
         .thenAnswer(
             invocation ->
                 new ArrayList<PaymentScheduleElementDto>(

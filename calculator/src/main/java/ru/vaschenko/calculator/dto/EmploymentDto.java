@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 public class EmploymentDto {
 
   @JsonProperty("employment_status")
-  @Schema(description = "Employment status", example = "FULL_TIME")
+  @Schema(description = "Employment status")
   private EmploymentStatus employmentStatus;
 
   @JsonProperty("employer_inn")
@@ -32,7 +32,7 @@ public class EmploymentDto {
   private BigDecimal salary;
 
   @JsonProperty("position")
-  @Schema(description = "Position", example = "MANAGER")
+  @Schema(description = "Position")
   private Position position;
 
   @JsonProperty("work_experience_total")

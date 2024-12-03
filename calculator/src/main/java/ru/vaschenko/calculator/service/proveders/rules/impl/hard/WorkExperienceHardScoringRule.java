@@ -1,12 +1,12 @@
 package ru.vaschenko.calculator.service.proveders.rules.impl.hard;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.dto.scoring.RejectionAndMessageScoringDTO;
 import ru.vaschenko.calculator.service.proveders.rules.ScoringHardRules;
 
-@Component
+@Service
 public class WorkExperienceHardScoringRule implements ScoringHardRules {
   @Value("${scoring.filters.hard.work.experience.total}")
   private Integer workExperienceTotal;

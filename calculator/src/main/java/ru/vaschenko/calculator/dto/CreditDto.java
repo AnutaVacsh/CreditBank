@@ -43,9 +43,6 @@ public class CreditDto {
 
   @JsonProperty("payment_schedule")
   @Schema(
-      description = "График платежей",
-      example =
-          "[{\"number\":1,\"date\":\"2024-12-01\",\"totalPayment\":8500.50,"
-              + "\"interestPayment\":1500.50,\"debtPayment\":7000.00,\"remainingDebt\":93000.00}]")
+      description = "График платежей")
   private List<PaymentScheduleElementDto> paymentSchedule;
 }

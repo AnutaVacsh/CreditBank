@@ -1,27 +1,26 @@
 package ru.vaschenko.calculator.service;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.vaschenko.calculator.dto.LoanOfferDto;
 import ru.vaschenko.calculator.dto.LoanStatementRequestDto;
 import ru.vaschenko.calculator.dto.scoring.PreScoringInfoDTO;
-import ru.vaschenko.calculator.service.proveders.impl.DefaultScoringProvider;
+import ru.vaschenko.calculator.service.proveders.ScoringProvider;
 import ru.vaschenko.calculator.service.proveders.rules.impl.soft.InsuranceSoftPreScoringRule;
 import ru.vaschenko.calculator.service.proveders.rules.impl.soft.SalaryClientSoftPreScoringRule;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class OfferService {
   private final ScoringService scoringService;
-  private final DefaultScoringProvider scoringProvider;
+  private final ScoringProvider scoringProvider;
 
   /**
    * Генерирует список предложений по кредиту на основе запроса клиента.
@@ -35,8 +34,8 @@ public class OfferService {
     List<PreScoringInfoDTO> preScoringInfoDTOs = scoringProvider.preScoring();
 
     return generateLoanOffers(requestDto, preScoringInfoDTOs).stream()
-            .sorted((o1, o2) -> o2.getRate().compareTo(o1.getRate()))
-            .collect(Collectors.toList());
+        .sorted((o1, o2) -> o2.getRate().compareTo(o1.getRate()))
+        .collect(Collectors.toList());
   }
 
   /**
@@ -78,6 +77,7 @@ public class OfferService {
               .build());
     }
 
+    log.debug("generate loan offers {}", loanOffers);
     return loanOffers;
   }
 }

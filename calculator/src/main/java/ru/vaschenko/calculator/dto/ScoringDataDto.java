@@ -80,7 +80,7 @@ public class ScoringDataDto {
   private String passportIssueBranch;
 
   @JsonProperty("marital_status")
-  @Schema(description = "Client's marital status", example = "MARRIED")
+  @Schema(description = "Client's marital status")
   private MaritalStatus maritalStatus;
 
   @JsonProperty("dependent_amount")

@@ -1,12 +1,17 @@
 package ru.vaschenko.calculator.service.proveders.impl;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.dto.scoring.PreScoringInfoDTO;
 import ru.vaschenko.calculator.dto.scoring.RateAndOtherScoringDto;
-import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.dto.scoring.RejectionAndMessageScoringDTO;
 import ru.vaschenko.calculator.exception.ScoringCalculationException;
 import ru.vaschenko.calculator.service.proveders.ScoringProvider;
@@ -14,14 +19,8 @@ import ru.vaschenko.calculator.service.proveders.rules.PreScoringRules;
 import ru.vaschenko.calculator.service.proveders.rules.ScoringHardRules;
 import ru.vaschenko.calculator.service.proveders.rules.ScoringSoftRules;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 @Slf4j
-@Component
+@Service
 @RequiredArgsConstructor
 public class DefaultScoringProvider implements ScoringProvider {
   private final List<ScoringHardRules> hardFilters;
@@ -35,7 +34,8 @@ public class DefaultScoringProvider implements ScoringProvider {
    * Выполняет полный процесс скоринга.
    *
    * @param scoringDataDto объект {@link ScoringDataDto}, содержащий данные для скоринга.
-   * @return объект {@link RateAndOtherScoringDto}, содержащий итоговую ставку и дополнительные услуги.
+   * @return объект {@link RateAndOtherScoringDto}, содержащий итоговую ставку и дополнительные
+   *     услуги.
    * @throws ScoringCalculationException любая из жестких проверок не пройдена.
    */
   @Override
@@ -52,7 +52,7 @@ public class DefaultScoringProvider implements ScoringProvider {
    *
    * @param scoringDataDto объект {@link ScoringDataDto}, содержащий данные для скоринга.
    * @return объект {@link RejectionAndMessageScoringDTO}, содержащий результат проверки
-   *         (успех/отказ) и соответствующее сообщение.
+   *     (успех/отказ) и соответствующее сообщение.
    */
   @Override
   public RejectionAndMessageScoringDTO hardScoring(ScoringDataDto scoringDataDto) {
@@ -77,8 +77,8 @@ public class DefaultScoringProvider implements ScoringProvider {
    *
    * @param scoringDataDto объект {@link ScoringDataDto}, содержащий данные для скоринга.
    * @param rate базовая ставка для расчета.
-   * @return объект {@link RateAndOtherScoringDto}, содержащий скорректированную ставку
-   *         и дополнительные услуги.
+   * @return объект {@link RateAndOtherScoringDto}, содержащий скорректированную ставку и
+   *     дополнительные услуги.
    */
   @Override
   public RateAndOtherScoringDto softScoring(ScoringDataDto scoringDataDto, BigDecimal rate) {
@@ -98,7 +98,7 @@ public class DefaultScoringProvider implements ScoringProvider {
    * Выполняет прескоринг для различных комбинаций правил.
    *
    * @return список {@link PreScoringInfoDTO}, содержащий комбинации правил и соответствующие
-   *         скоринговые данные.
+   *     скоринговые данные.
    */
   @Override
   public List<PreScoringInfoDTO> preScoring() {

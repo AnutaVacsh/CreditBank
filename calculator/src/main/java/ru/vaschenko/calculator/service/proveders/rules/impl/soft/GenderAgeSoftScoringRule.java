@@ -1,15 +1,16 @@
 package ru.vaschenko.calculator.service.proveders.rules.impl.soft;
 
-import org.springframework.beans.factory.annotation.Value;
-import ru.vaschenko.calculator.dto.scoring.RateAndOtherScoringDto;
-import ru.vaschenko.calculator.dto.ScoringDataDto;
-import ru.vaschenko.calculator.dto.enums.Gender;
-import ru.vaschenko.calculator.service.proveders.rules.ScoringSoftRules;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import ru.vaschenko.calculator.dto.ScoringDataDto;
+import ru.vaschenko.calculator.dto.enums.Gender;
+import ru.vaschenko.calculator.dto.scoring.RateAndOtherScoringDto;
+import ru.vaschenko.calculator.service.proveders.rules.ScoringSoftRules;
 
+@Service
 public class GenderAgeSoftScoringRule implements ScoringSoftRules {
     @Value("${scoring.filters.soft.gender_age.age_female.min}")
     private Integer minAgeFemale;

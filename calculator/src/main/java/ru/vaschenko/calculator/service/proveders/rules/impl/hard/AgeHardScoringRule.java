@@ -1,15 +1,14 @@
 package ru.vaschenko.calculator.service.proveders.rules.impl.hard;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.dto.scoring.RejectionAndMessageScoringDTO;
 import ru.vaschenko.calculator.service.proveders.rules.ScoringHardRules;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-
-@Component
+@Service
 public class AgeHardScoringRule implements ScoringHardRules {
   @Value("${scoring.filters.hard.age.min}")
   private Integer minAge;
