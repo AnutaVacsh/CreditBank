@@ -3,12 +3,10 @@ package ru.vaschenko.deal.models.json;
 import java.time.LocalDate;
 import java.util.UUID;
 import lombok.*;
+import lombok.experimental.Accessors;
 
-@Getter
-@Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
+@Accessors(chain = true)
 public class Passport {
   private UUID passportUUID;
   private String series;

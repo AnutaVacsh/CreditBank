@@ -1,7 +1,5 @@
 package ru.vaschenko.deal.services;
 
-import feign.FeignException;
-import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +15,7 @@ import ru.vaschenko.deal.models.Client;
 import ru.vaschenko.deal.models.Credit;
 import ru.vaschenko.deal.models.Statement;
 import ru.vaschenko.deal.models.enams.ApplicationStatus;
-import ru.vaschenko.deal.models.enams.ChangeType;
 import ru.vaschenko.deal.models.enams.CreditStatus;
-import ru.vaschenko.deal.services.client.CalculatorClient;
 
 @Slf4j
 @Service
@@ -28,7 +24,7 @@ public class DealServices {
   private final ClientService clientService;
   private final StatementService statementService;
   private final CreditService creditService;
-  private final CalculatorClient calculatorClient;
+  private final CalculatorService calculatorService;
   private final ScoringDataMapper scoringDataMapper;
   private final CreditMapper creditMapper;
 
@@ -49,18 +45,19 @@ public class DealServices {
     Statement statement = statementService.createStatement(client);
 
     List<LoanOfferDto> offers;
-    try {
-      log.info("Request to the Calculator microservice to get offers.");
-      offers = calculatorClient.getLoanOffers(loanStatementRequestDto);
-    } catch (FeignException e) {
-      log.info("Error occurred while making a request to the Calculator microservice.");
-      if (e.status() == 400) {
-        statement.setStatus(ApplicationStatus.CC_DENIED, ChangeType.AUTOMATIC);
-        statementService.saveStatement(statement);
-        throw new PrescoringException(e.contentUTF8());
-      }
-      throw e;
-    }
+    offers = calculatorService.getLoanOffers(loanStatementRequestDto, statement);
+
+    //    try {
+    //      offers = calculatorClient.getLoanOffers(loanStatementRequestDto);
+    //    } catch (FeignException e) {
+    //      log.info("Error occurred while making a request to the Calculator microservice.");
+    //      if (e.status() == 400) {
+    //        statement.setStatus(ApplicationStatus.CC_DENIED, ChangeType.AUTOMATIC);
+    //        statementService.saveStatement(statement);
+    //        throw new PrescoringException(e.contentUTF8());
+    //      }
+    //      throw e;
+    //    }
 
     offers.forEach(oldOffer -> oldOffer.setStatementId(statement.getStatementId()));
     log.debug("Created list of offers: {}", offers);
@@ -95,21 +92,21 @@ public class DealServices {
     ScoringDataDto scoringDataDto =
         scoringDataMapper.toScoringDataDto(statement, finishRegistrationRequestDto);
 
-    CreditDto creditDto;
-    try {
-      log.info("Запрос к микросервису Калькулятор для выполнения расчёта.");
-      creditDto = calculatorClient.getCredit(scoringDataDto);
-      statement.setStatus(ApplicationStatus.CC_APPROVED);
-      statementService.saveStatement(statement);
-    } catch (FeignException e) {
-      log.info("Ошибка при запросе к микросервису Калькулятор.");
-      if (e.status() == 500) {
-        statement.setStatus(ApplicationStatus.CC_DENIED);
-        statementService.saveStatement(statement);
-        throw new ScoringCalculationException(e.contentUTF8());
-      }
-      throw e;
-    }
+    CreditDto creditDto = calculatorService.getCredit(scoringDataDto, statement);
+    //    try {
+    //      log.info("Запрос к микросервису Калькулятор для выполнения расчёта.");
+    //      creditDto = calculatorClient.getCredit(scoringDataDto);
+    //      statement.setStatus(ApplicationStatus.CC_APPROVED);
+    //      statementService.saveStatement(statement);
+    //    } catch (FeignException e) {
+    //      log.info("Ошибка при запросе к микросервису Калькулятор.");
+    //      if (e.status() == 500) {
+    //        statement.setStatus(ApplicationStatus.CC_DENIED);
+    //        statementService.saveStatement(statement);
+    //        throw new ScoringCalculationException(e.contentUTF8());
+    //      }
+    //      throw e;
+    //    }
 
     Credit credit = creditMapper.toCredit(creditDto);
     credit.setCreditStatus(CreditStatus.CALCULATED);

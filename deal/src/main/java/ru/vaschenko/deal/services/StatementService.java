@@ -25,8 +25,7 @@ public class StatementService {
    * @return созданная и сохранённая заявка {@link Statement}.
    */
   protected Statement createStatement(Client client) {
-    Statement statement =
-        Statement.builder().client(client).creationDate(LocalDateTime.now()).build();
+    Statement statement = new Statement().setClient(client).setCreationDate(LocalDateTime.now());
     statement.setStatus(ApplicationStatus.PREAPPROVAL);
     return saveStatement(statement);
   }

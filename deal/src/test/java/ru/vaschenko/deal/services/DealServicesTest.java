@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 import ru.vaschenko.deal.dto.*;
@@ -36,9 +37,9 @@ class DealServicesTest {
 
   @Mock private CalculatorClient calculatorClient;
 
-  @Mock private ScoringDataMapper scoringDataMapper;
+  @Spy private ScoringDataMapper scoringDataMapper;
 
-  @Mock private CreditMapper creditMapper;
+  @Spy private CreditMapper creditMapper;
 
   @InjectMocks private DealServices dealServices;
 
@@ -114,28 +115,31 @@ class DealServicesTest {
 
   @Test
   void testCalculate_Success() {
+    // GIVEN:
     UUID statementId = UUID.randomUUID();
     FinishRegistrationRequestDto finishRegistrationRequestDto =
-        FinishRegistrationRequestDto.builder().build();
+            FinishRegistrationRequestDto.builder().build();
 
     Statement mockStatement = new Statement();
     mockStatement.setStatementId(statementId);
 
     ScoringDataDto scoringDataDto = ScoringDataDto.builder().build();
-
     CreditDto creditDto = CreditDto.builder().build();
     Credit mockCredit = new Credit();
 
     when(statementService.findStatementById(statementId)).thenReturn(mockStatement);
     when(scoringDataMapper.toScoringDataDto(mockStatement, finishRegistrationRequestDto))
-        .thenReturn(scoringDataDto);
+            .thenReturn(scoringDataDto);
     when(calculatorClient.getCredit(scoringDataDto)).thenReturn(creditDto);
     when(creditMapper.toCredit(creditDto)).thenReturn(mockCredit);
 
+    // WHEN:
     dealServices.calculate(statementId, finishRegistrationRequestDto);
 
+    // THEN:
     verify(statementService).saveStatement(mockStatement);
     verify(creditService).safeCredit(mockCredit);
     assertEquals(CreditStatus.CALCULATED, mockCredit.getCreditStatus());
   }
+
 }

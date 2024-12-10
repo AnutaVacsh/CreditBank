@@ -3,14 +3,12 @@ package ru.vaschenko.deal.models.json;
 import java.math.BigDecimal;
 import java.util.UUID;
 import lombok.*;
+import lombok.experimental.Accessors;
 import ru.vaschenko.deal.models.enams.EmploymentPosition;
 import ru.vaschenko.deal.models.enams.EmploymentStatus;
 
-@Getter
-@Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
+@Accessors(chain = true)
 public class Employment {
   private UUID employmentUUID;
   private EmploymentStatus status;

@@ -27,11 +27,10 @@ class CreditServiceTest {
 
     @BeforeEach
     void setUp() {
-        credit = Credit.builder()
-                .amount(new BigDecimal(1000))
-                .rate(new BigDecimal("5.0"))
-                .term(12)
-                .build();
+        Credit credit = new Credit()
+                .setAmount(new BigDecimal(1000))
+                .setRate(new BigDecimal("5.0"))
+                .setTerm(12);
     }
 
     @Test

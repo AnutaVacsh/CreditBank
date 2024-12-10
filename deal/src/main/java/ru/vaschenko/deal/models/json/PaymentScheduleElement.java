@@ -3,12 +3,10 @@ package ru.vaschenko.deal.models.json;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import lombok.*;
+import lombok.experimental.Accessors;
 
-@Getter
-@Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
+@Accessors(chain = true)
 public class PaymentScheduleElement {
   private Integer number;
   private LocalDate date;

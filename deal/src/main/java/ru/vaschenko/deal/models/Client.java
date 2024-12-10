@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 import lombok.*;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import ru.vaschenko.deal.models.enams.Gender;
@@ -11,30 +12,24 @@ import ru.vaschenko.deal.models.enams.MaritalStatus;
 import ru.vaschenko.deal.models.json.Employment;
 import ru.vaschenko.deal.models.json.Passport;
 
+@Data
+@Accessors(chain = true)
 @Entity
 @Table(name = "client")
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@Builder
 public class Client {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   UUID clientId;
 
-  @Column(nullable = false)
   String lastName;
 
-  @Column(nullable = false)
   String firstName;
 
   String middleName;
 
-  @Column(name = "birth_date", nullable = false)
+  @Column(name = "birth_date")
   LocalDate birthdate;
 
-  @Column(nullable = false)
   String email;
 
   @Enumerated(EnumType.STRING)
@@ -45,10 +40,14 @@ public class Client {
 
   Integer dependentAmount;
 
+  @ToString.Exclude
+  @EqualsAndHashCode.Exclude
   @JdbcTypeCode(SqlTypes.JSON)
   @Column(name = "passport_id", columnDefinition = "jsonb")
   Passport passport;
 
+  @ToString.Exclude
+  @EqualsAndHashCode.Exclude
   @JdbcTypeCode(SqlTypes.JSON)
   @Column(name = "employment_id", columnDefinition = "jsonb")
   Employment employment;

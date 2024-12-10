@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import lombok.*;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import ru.vaschenko.deal.dto.LoanOfferDto;
@@ -16,34 +17,32 @@ import ru.vaschenko.deal.models.json.StatusHistory;
 
 @Entity
 @Table(name = "statements")
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@Builder
-@ToString
+@Data
+@Accessors(chain = true)
 public class Statement {
-
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  //    @Column(nullable = false)
   private UUID statementId;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "client_id", nullable = false)
+  @ToString.Exclude
+  @EqualsAndHashCode.Exclude
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "client_id")
   private Client client;
 
-  @ManyToOne
+  @OneToOne
+  @ToString.Exclude
+  @EqualsAndHashCode.Exclude
   @JoinColumn(name = "credit_id")
   private Credit credit;
 
   @Enumerated(EnumType.STRING)
-  @Column(nullable = false)
   private ApplicationStatus status;
 
-  @Column(nullable = false)
   private LocalDateTime creationDate;
 
+  @ToString.Exclude
+  @EqualsAndHashCode.Exclude
   @JdbcTypeCode(SqlTypes.JSON)
   @Column(columnDefinition = "jsonb")
   private LoanOfferDto appliedOffer;
@@ -52,9 +51,11 @@ public class Statement {
 
   private String sesCode;
 
+  @ToString.Exclude
+  @EqualsAndHashCode.Exclude
   @JdbcTypeCode(SqlTypes.JSON)
   @Column(columnDefinition = "jsonb")
-  private List<StatusHistory> statusHistory;
+  private List<StatusHistory> statusHistory = new ArrayList<>();
 
   /**
    * Устанавливает новый статус заявки с типом изменения по умолчанию {@link ChangeType#AUTOMATIC}.
@@ -74,7 +75,7 @@ public class Statement {
   public void setStatus(ApplicationStatus status, ChangeType type) {
     this.status = status;
     addStatusHistory(
-        StatusHistory.builder().status(status.name()).time(LocalDate.now()).type(type).build());
+        new StatusHistory().setStatus(status.name()).setTime(LocalDateTime.now()).setType(type));
   }
 
   /**
@@ -84,9 +85,6 @@ public class Statement {
    *     типе.
    */
   public void addStatusHistory(StatusHistory status) {
-    if (statusHistory == null) {
-      statusHistory = new ArrayList<>();
-    }
     statusHistory.add(status);
   }
 }

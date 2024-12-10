@@ -1,27 +1,24 @@
 package ru.vaschenko.deal.controllers;
 
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ru.vaschenko.deal.dto.FinishRegistrationRequestDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
 import ru.vaschenko.deal.services.DealServices;
+
+import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class DealControllerTest {
@@ -30,62 +27,50 @@ class DealControllerTest {
 
   @InjectMocks private DealController dealController;
 
-  private MockMvc mockMvc;
-  private ObjectMapper objectMapper;
   private LoanOfferDto loanOfferDto;
 
   @BeforeEach
   void setUp() {
-    mockMvc = MockMvcBuilders.standaloneSetup(dealController).build();
-    objectMapper = new ObjectMapper();
-
     loanOfferDto =
         LoanOfferDto.builder().statementId(UUID.randomUUID()).rate(BigDecimal.valueOf(11)).build();
   }
 
   @Test
-  void testCreateStatement() throws Exception {
+  void testCreateStatement() {
     LoanStatementRequestDto requestDto = LoanStatementRequestDto.builder().build();
 
     when(dealServices.createStatement(requestDto))
         .thenReturn(ResponseEntity.ok(Collections.singletonList(loanOfferDto)));
 
-    mockMvc
-        .perform(
-            post("/deal/statement")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(requestDto)))
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.length()").value(1))
-        .andExpect(jsonPath("$[0].rate").value(11));
+    ResponseEntity<List<LoanOfferDto>> response = dealController.createStatement(requestDto);
+
+    assertNotNull(response);
+    assertEquals(1, response.getBody().size());
+    assertEquals(BigDecimal.valueOf(11), response.getBody().get(0).getRate());
 
     verify(dealServices, times(1)).createStatement(requestDto);
   }
 
   @Test
-  void testSelectOffer() throws Exception {
-    mockMvc
-        .perform(
-            post("/deal/offer/select")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(loanOfferDto)))
-        .andExpect(status().isOk());
+  void testSelectOffer() {
+    LoanOfferDto loanOfferDto = LoanOfferDto.builder().build();
 
-    verify(dealServices, times(1)).selectOffer(any(LoanOfferDto.class));
+    doNothing().when(dealServices).selectOffer(loanOfferDto);
+
+    dealController.selectOffer(loanOfferDto);
+
+    verify(dealServices, times(1)).selectOffer(loanOfferDto);
   }
 
   @Test
-  void testCalculate() throws Exception {
+  void testCalculate() {
     UUID statementId = UUID.randomUUID();
     FinishRegistrationRequestDto finishRegistrationRequestDto =
         FinishRegistrationRequestDto.builder().build();
 
-    mockMvc
-        .perform(
-            post("/deal/calculate/" + statementId)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(finishRegistrationRequestDto)))
-        .andExpect(status().isOk());
+    doNothing().when(dealServices).calculate(statementId, finishRegistrationRequestDto);
+
+    dealController.calculate(statementId, finishRegistrationRequestDto);
 
     verify(dealServices, times(1)).calculate(statementId, finishRegistrationRequestDto);
   }

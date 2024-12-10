@@ -1,18 +1,16 @@
 package ru.vaschenko.deal.models.json;
 
 import java.time.LocalDate;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
+
+import lombok.*;
+import lombok.experimental.Accessors;
 import ru.vaschenko.deal.models.enams.ChangeType;
 
-@Getter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
+@Accessors(chain = true)
 public class StatusHistory {
   private String status;
-  private LocalDate time;
+  private LocalDateTime time;
   private ChangeType type;
 }

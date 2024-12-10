@@ -31,11 +31,15 @@ class StatementServiceTest {
 
   @BeforeEach
   void setUp() {
-    client =
-        Client.builder().email("john.doe@example.com").firstName("John").lastName("Doe").build();
+    Client client = new Client()
+            .setEmail("john.doe@example.com")
+            .setFirstName("John")
+            .setLastName("Due");
 
-    statement =
-        Statement.builder().client(client).creationDate(java.time.LocalDateTime.now()).build();
+    Statement statement = new Statement()
+            .setClient(client)
+            .setCreationDate(java.time.LocalDateTime.now());
+
 
     statementId = UUID.randomUUID();
   }
