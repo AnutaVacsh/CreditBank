@@ -1,9 +1,8 @@
-package ru.vaschenko.deal.services.client;
+package ru.vaschenko.deal.client;
 
 import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import ru.vaschenko.deal.dto.CreditDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;

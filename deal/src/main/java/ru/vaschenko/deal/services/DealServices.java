@@ -47,18 +47,6 @@ public class DealServices {
     List<LoanOfferDto> offers;
     offers = calculatorService.getLoanOffers(loanStatementRequestDto, statement);
 
-    //    try {
-    //      offers = calculatorClient.getLoanOffers(loanStatementRequestDto);
-    //    } catch (FeignException e) {
-    //      log.info("Error occurred while making a request to the Calculator microservice.");
-    //      if (e.status() == 400) {
-    //        statement.setStatus(ApplicationStatus.CC_DENIED, ChangeType.AUTOMATIC);
-    //        statementService.saveStatement(statement);
-    //        throw new PrescoringException(e.contentUTF8());
-    //      }
-    //      throw e;
-    //    }
-
     offers.forEach(oldOffer -> oldOffer.setStatementId(statement.getStatementId()));
     log.debug("Created list of offers: {}", offers);
     return ResponseEntity.ok(offers);
@@ -87,26 +75,12 @@ public class DealServices {
    */
   public void calculate(
       UUID statementId, FinishRegistrationRequestDto finishRegistrationRequestDto) {
-    log.info("Начат процесс завершения регистрации.");
+    log.info("The registration completion process has begun.");
     Statement statement = statementService.findStatementById(statementId);
     ScoringDataDto scoringDataDto =
         scoringDataMapper.toScoringDataDto(statement, finishRegistrationRequestDto);
 
     CreditDto creditDto = calculatorService.getCredit(scoringDataDto, statement);
-    //    try {
-    //      log.info("Запрос к микросервису Калькулятор для выполнения расчёта.");
-    //      creditDto = calculatorClient.getCredit(scoringDataDto);
-    //      statement.setStatus(ApplicationStatus.CC_APPROVED);
-    //      statementService.saveStatement(statement);
-    //    } catch (FeignException e) {
-    //      log.info("Ошибка при запросе к микросервису Калькулятор.");
-    //      if (e.status() == 500) {
-    //        statement.setStatus(ApplicationStatus.CC_DENIED);
-    //        statementService.saveStatement(statement);
-    //        throw new ScoringCalculationException(e.contentUTF8());
-    //      }
-    //      throw e;
-    //    }
 
     Credit credit = creditMapper.toCredit(creditDto);
     credit.setCreditStatus(CreditStatus.CALCULATED);

@@ -22,6 +22,7 @@ import ru.vaschenko.deal.models.json.StatusHistory;
 public class Statement {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
+  @Column(name = "statement_id")
   private UUID statementId;
 
   @ToString.Exclude
@@ -37,24 +38,28 @@ public class Statement {
   private Credit credit;
 
   @Enumerated(EnumType.STRING)
+  @Column(name = "status")
   private ApplicationStatus status;
 
+  @Column(name = "creation_date")
   private LocalDateTime creationDate;
 
   @ToString.Exclude
   @EqualsAndHashCode.Exclude
   @JdbcTypeCode(SqlTypes.JSON)
-  @Column(columnDefinition = "jsonb")
+  @Column(name = "applied_offer", columnDefinition = "jsonb")
   private LoanOfferDto appliedOffer;
 
+  @Column(name = "sign_date")
   private LocalDateTime signDate;
 
+  @Column(name = "ses_code")
   private String sesCode;
 
   @ToString.Exclude
   @EqualsAndHashCode.Exclude
   @JdbcTypeCode(SqlTypes.JSON)
-  @Column(columnDefinition = "jsonb")
+  @Column(name = "status_history", columnDefinition = "jsonb")
   private List<StatusHistory> statusHistory = new ArrayList<>();
 
   /**

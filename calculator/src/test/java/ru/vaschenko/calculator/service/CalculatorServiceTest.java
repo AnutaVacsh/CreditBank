@@ -41,7 +41,7 @@ class CalculatorServiceTest {
                     .employmentStatus(EmploymentStatus.SELF_EMPLOYED)
                     .employerINN("7712345678")
                     .salary(new BigDecimal(50000))
-                    .position(Position.MIDDLE_MANAGER)
+                    .position(Position.MID_MANAGER)
                     .workExperienceTotal(24)
                     .workExperienceCurrent(12)
                     .build())

@@ -30,7 +30,7 @@ class WorkPositionSoftScoringRuleTest {
   void check_MiddleManager_ShouldReturnCorrectRateChange() {
     ScoringDataDto scoringDataDto = ScoringDataDto.builder()
             .employment(EmploymentDto.builder()
-                    .position(Position.MIDDLE_MANAGER)
+                    .position(Position.MID_MANAGER)
                     .build())
             .build();
 

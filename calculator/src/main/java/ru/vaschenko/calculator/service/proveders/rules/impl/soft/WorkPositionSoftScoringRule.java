@@ -25,7 +25,7 @@ public class WorkPositionSoftScoringRule implements ScoringSoftRules {
   @Override
   public RateAndOtherScoringDto check(ScoringDataDto scoringDataDto) {
     switch (scoringDataDto.getEmployment().getPosition()) {
-      case MIDDLE_MANAGER -> {
+      case MID_MANAGER -> {
         return new RateAndOtherScoringDto(changeRateValueMiddleManager, BigDecimal.ZERO);
       }
       case TOP_MANAGER -> {

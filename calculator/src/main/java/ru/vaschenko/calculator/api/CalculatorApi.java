@@ -10,12 +10,14 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ru.vaschenko.calculator.dto.*;
 import ru.vaschenko.calculator.util.ApiPath;
 
 import java.util.List;
 
 @Tag(name = "Calculator", description = "Calculator service for credit conditions")
+//@RequestMapping(api)
 public interface CalculatorApi {
 
   @Operation(summary = "Calculate loan offers")

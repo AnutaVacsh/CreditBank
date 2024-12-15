@@ -13,13 +13,15 @@ import ru.vaschenko.calculator.dto.ErrorMessageDto;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+  //3 d один
+  //controllr.hendler.
   /**
    * Обрабатывает исключения типа ScoringCalculationException.
    *
    * @param ex выброшенное исключение.
    * @return ответ с сообщением об ошибке и статусом BAD_REQUEST.
    */
-  @ExceptionHandler(ScoringCalculationException.class)
+  @ExceptionHandler({ScoringCalculationException.class})
   public ResponseEntity<ErrorMessageDto> handleScoringCalculationException(
       ScoringCalculationException ex) {
     ErrorMessageDto errorMessageDto = new ErrorMessageDto(ex.getMessage());

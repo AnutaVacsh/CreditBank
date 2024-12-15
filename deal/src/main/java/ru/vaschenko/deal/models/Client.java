@@ -19,38 +19,48 @@ import ru.vaschenko.deal.models.json.Passport;
 public class Client {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  UUID clientId;
+  @Column(name = "client_id")
+  private UUID clientId;
 
-  String lastName;
+  @Column(name = "last_name")
+  private String lastName;
 
-  String firstName;
+  @Column(name = "first_name")
+  private String firstName;
 
-  String middleName;
+  @Column(name = "middle_name")
+  private String middleName;
 
   @Column(name = "birth_date")
-  LocalDate birthdate;
+  private LocalDate birthdate;
 
-  String email;
+  @Column(name = "email")
+  private String email;
 
+  @Column(name = "gender")
   @Enumerated(EnumType.STRING)
-  Gender gender;
+  private Gender gender;
 
+  @Column(name = "marital_status")
   @Enumerated(EnumType.STRING)
-  MaritalStatus maritalStatus;
+  private MaritalStatus maritalStatus;
 
-  Integer dependentAmount;
+  @Column(name = "dependent_amount")
+  private Integer dependentAmount;
 
   @ToString.Exclude
   @EqualsAndHashCode.Exclude
   @JdbcTypeCode(SqlTypes.JSON)
   @Column(name = "passport_id", columnDefinition = "jsonb")
-  Passport passport;
+  private Passport passport;
 
   @ToString.Exclude
   @EqualsAndHashCode.Exclude
   @JdbcTypeCode(SqlTypes.JSON)
   @Column(name = "employment_id", columnDefinition = "jsonb")
-  Employment employment;
+  private Employment employment;
 
-  String accountNumber;
+
+  @Column(name = "account_number")
+  private String accountNumber;
 }
