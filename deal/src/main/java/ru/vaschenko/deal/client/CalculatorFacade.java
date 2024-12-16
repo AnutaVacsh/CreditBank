@@ -7,11 +7,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.vaschenko.deal.annotation.FeignRetryable;
-import ru.vaschenko.deal.client.CalculatorClient;
 import ru.vaschenko.deal.dto.CreditDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
 import ru.vaschenko.deal.dto.ScoringDataDto;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor

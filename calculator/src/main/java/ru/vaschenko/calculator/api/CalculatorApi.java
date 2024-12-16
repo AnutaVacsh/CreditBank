@@ -7,17 +7,20 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.vaschenko.calculator.dto.*;
+import ru.vaschenko.calculator.dto.CreditDto;
+import ru.vaschenko.calculator.dto.ErrorMessageDto;
+import ru.vaschenko.calculator.dto.LoanOfferDto;
+import ru.vaschenko.calculator.dto.LoanStatementRequestDto;
+import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.util.ApiPath;
 
-import java.util.List;
-
 @Tag(name = "Calculator", description = "Calculator service for credit conditions")
-//@RequestMapping(api)
+@RequestMapping(ApiPath.BASE_URL)
 public interface CalculatorApi {
 
   @Operation(summary = "Calculate loan offers")

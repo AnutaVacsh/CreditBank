@@ -1,15 +1,13 @@
 package ru.vaschenko.calculator.service;
 
-import lombok.AllArgsConstructor;
+import java.math.BigDecimal;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.vaschenko.calculator.dto.CreditDto;
 import ru.vaschenko.calculator.dto.PaymentScheduleElementDto;
 import ru.vaschenko.calculator.dto.ScoringDataDto;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 @Slf4j
 @Service

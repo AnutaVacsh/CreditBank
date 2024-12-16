@@ -1,15 +1,12 @@
 package ru.vaschenko.calculator.controller;
 
-
-import java.util.List;
-
 import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.vaschenko.calculator.api.CalculatorApi;
 import ru.vaschenko.calculator.dto.CreditDto;
@@ -18,7 +15,6 @@ import ru.vaschenko.calculator.dto.LoanStatementRequestDto;
 import ru.vaschenko.calculator.dto.ScoringDataDto;
 import ru.vaschenko.calculator.service.CalculatorService;
 import ru.vaschenko.calculator.service.OfferService;
-import ru.vaschenko.calculator.util.ApiPath;
 
 @Slf4j
 @RestController

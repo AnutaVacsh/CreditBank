@@ -18,7 +18,7 @@
 2024-12-15T14:49:46.968+04:00  INFO 5392 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 2024-12-15T14:49:53.170+04:00  INFO 5392 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-12-15T14:49:53.336+04:00  INFO 5392 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T14:49:53.768+04:00  WARN 5392 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealController' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\controllers\DealController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dealServices' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\services\DealServices.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'calculatorService' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\services\CalculatorService.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'ru.vaschenko.deal.client.impl.CalculatorFacade' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-12-15T14:49:53.768+04:00  WARN 5392 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealController' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\controllers\DealController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dealServices' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\services\DealServices.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'calculatorService' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\services\CalculatorService.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'ru.vaschenko.deal.client.CalculatorFacade' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 2024-12-15T14:49:53.768+04:00  INFO 5392 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-15T14:49:53.768+04:00  INFO 5392 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-15T14:49:53.781+04:00  INFO 5392 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
@@ -34,12 +34,12 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in ru.vaschenko.deal.services.CalculatorService required a bean of type 'ru.vaschenko.deal.client.impl.CalculatorFacade' that could not be found.
+Parameter 0 of constructor in ru.vaschenko.deal.services.CalculatorService required a bean of type 'ru.vaschenko.deal.client.CalculatorFacade' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'ru.vaschenko.deal.client.impl.CalculatorFacade' in your configuration.
+Consider defining a bean of type 'ru.vaschenko.deal.client.CalculatorFacade' in your configuration.
 
 2024-12-15T14:50:14.906+04:00  INFO 7172 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 7172 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
 2024-12-15T14:50:14.910+04:00 DEBUG 7172 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
@@ -266,3 +266,29 @@ Caused by: org.hibernate.MappingException: Column 'payment_schedule' is duplicat
 2024-12-15T16:31:38.705+04:00  INFO 6512 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-15T16:31:38.709+04:00  INFO 6512 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-15T16:31:38.717+04:00  INFO 6512 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-15T17:56:44.265+04:00  INFO 15688 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 15688 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
+2024-12-15T17:56:44.266+04:00 DEBUG 15688 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-15T17:56:44.273+04:00  INFO 15688 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-12-15T17:56:46.167+04:00  INFO 15688 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-15T17:56:46.298+04:00  INFO 15688 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 3 JPA repository interfaces.
+2024-12-15T17:56:46.699+04:00  INFO 15688 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=822380b4-d05d-33f9-a457-d31af80f9358
+2024-12-15T17:56:47.432+04:00  INFO 15688 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-15T17:56:47.463+04:00  INFO 15688 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-15T17:56:47.463+04:00  INFO 15688 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-15T17:56:47.569+04:00  INFO 15688 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-15T17:56:47.569+04:00  INFO 15688 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3154 ms
+2024-12-15T17:56:47.870+04:00  INFO 15688 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-15T17:56:47.985+04:00  INFO 15688 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-15T17:56:48.048+04:00  INFO 15688 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-15T17:56:48.517+04:00  INFO 15688 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-15T17:56:48.570+04:00  INFO 15688 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-15T17:56:48.849+04:00  INFO 15688 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6253e59a
+2024-12-15T17:56:48.864+04:00  INFO 15688 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-15T17:56:50.203+04:00  INFO 15688 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-15T17:56:50.319+04:00  INFO 15688 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-15T17:56:50.652+04:00  WARN 15688 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-15T17:56:52.012+04:00  INFO 15688 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-12-15T17:56:52.027+04:00  INFO 15688 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Started DealApplication in 8.842 seconds (process running for 9.747)
+2024-12-15T17:56:57.533+04:00  INFO 15688 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-15T17:56:57.549+04:00  INFO 15688 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-15T17:56:57.556+04:00  INFO 15688 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

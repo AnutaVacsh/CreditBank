@@ -13,7 +13,7 @@ import ru.vaschenko.deal.exception.PrescoringException;
 import ru.vaschenko.deal.exception.ScoringCalculationException;
 import ru.vaschenko.deal.models.Statement;
 import ru.vaschenko.deal.models.enams.ApplicationStatus;
-import ru.vaschenko.deal.client.impl.CalculatorFacade;
+import ru.vaschenko.deal.client.CalculatorFacade;
 
 @Service
 @RequiredArgsConstructor

@@ -4,11 +4,6 @@ import static java.time.LocalDate.parse;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import feign.FeignException;
-
-import java.math.BigDecimal;
-import java.net.http.HttpClient;
-import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -16,8 +11,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
 import ru.vaschenko.deal.client.CalculatorClient;
+import ru.vaschenko.deal.client.CalculatorFacade;
 import ru.vaschenko.deal.dto.CreditDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
