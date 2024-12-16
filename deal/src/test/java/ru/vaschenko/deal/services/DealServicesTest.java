@@ -24,7 +24,7 @@ import ru.vaschenko.deal.models.Credit;
 import ru.vaschenko.deal.models.Statement;
 import ru.vaschenko.deal.models.enams.ApplicationStatus;
 import ru.vaschenko.deal.models.enams.CreditStatus;
-import ru.vaschenko.deal.services.client.CalculatorClient;
+import ru.vaschenko.deal.client.CalculatorClient;
 
 @ExtendWith(MockitoExtension.class)
 class DealServicesTest {

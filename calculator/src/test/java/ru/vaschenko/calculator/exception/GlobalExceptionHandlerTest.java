@@ -1,6 +1,5 @@
 package ru.vaschenko.calculator.exception;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import ru.vaschenko.calculator.controller.handlers.GlobalExceptionHandler;
 import ru.vaschenko.calculator.dto.ErrorMessageDto;
 
 import java.util.List;

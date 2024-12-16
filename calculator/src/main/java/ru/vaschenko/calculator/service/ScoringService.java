@@ -48,26 +48,26 @@ public class ScoringService {
     log.debug("result scoring {} {}", resultScoring.newRate(), resultScoring.otherService());
     return resultScoring.newRate();
   }
-
-  /**
-   * Прескоринг. Рассчитывает процентную ставку с учетом наличия страховки и зарплаты клиента.
-   * Формула: <br>
-   * rate = baseRate - (isInsuranceEnabled ? 3 : 0) - (isSalaryClient ? 1 : 0)
-   *
-   * @param isInsuranceEnabled наличие страховки.
-   * @param isSalaryClient зарплпта клиента.
-   * @return Процентная ставка.
-   */
-  protected BigDecimal calculateRate(boolean isInsuranceEnabled, boolean isSalaryClient) {
-    BigDecimal rate = baseRate;
-
-    if (isInsuranceEnabled) rate = rate.subtract(BigDecimal.valueOf(3));
-
-    if (isSalaryClient) rate = rate.subtract(BigDecimal.valueOf(1));
-
-    log.debug("The rate has been calculated {}", rate);
-    return rate;
-  }
+//
+//  /**
+//   * Прескоринг. Рассчитывает процентную ставку с учетом наличия страховки и зарплаты клиента.
+//   * Формула: <br>
+//   * rate = baseRate - (isInsuranceEnabled ? 3 : 0) - (isSalaryClient ? 1 : 0)
+//   *
+//   * @param isInsuranceEnabled наличие страховки.
+//   * @param isSalaryClient зарплпта клиента.
+//   * @return Процентная ставка.
+//   */
+//  protected BigDecimal calculateRate(boolean isInsuranceEnabled, boolean isSalaryClient) {
+//    BigDecimal rate = baseRate;
+//
+//    if (isInsuranceEnabled) rate = rate.subtract(BigDecimal.valueOf(3));
+//
+//    if (isSalaryClient) rate = rate.subtract(BigDecimal.valueOf(1));
+//
+//    log.debug("The rate has been calculated {}", rate);
+//    return rate;
+//  }
 
   /**
    * Рассчитывает общую сумму кредита с учетом страховки. Формула: <br>

@@ -1,5 +1,12 @@
 package ru.vaschenko.deal.controllers;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,14 +18,6 @@ import ru.vaschenko.deal.dto.FinishRegistrationRequestDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
 import ru.vaschenko.deal.services.DealServices;
-
-import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class DealControllerTest {

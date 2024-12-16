@@ -36,7 +36,7 @@ class StatementServiceTest {
             .setFirstName("John")
             .setLastName("Due");
 
-    Statement statement = new Statement()
+    statement = new Statement()
             .setClient(client)
             .setCreationDate(java.time.LocalDateTime.now());
 
@@ -74,7 +74,6 @@ class StatementServiceTest {
   void testFindStatementById() {
     when(statementRepositories.findById(statementId)).thenReturn(Optional.of(statement));
 
-    // Вызов метода
     Statement foundStatement = statementService.findStatementById(statementId);
 
     assertNotNull(foundStatement);

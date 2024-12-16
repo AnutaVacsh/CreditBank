@@ -1,5 +1,18 @@
 package ru.vaschenko.calculator.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,17 +26,6 @@ import ru.vaschenko.calculator.dto.enums.EmploymentStatus;
 import ru.vaschenko.calculator.dto.enums.Gender;
 import ru.vaschenko.calculator.dto.enums.MaritalStatus;
 import ru.vaschenko.calculator.dto.enums.Position;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class CalculatorServiceTest {
@@ -41,7 +43,7 @@ class CalculatorServiceTest {
                     .employmentStatus(EmploymentStatus.SELF_EMPLOYED)
                     .employerINN("7712345678")
                     .salary(new BigDecimal(50000))
-                    .position(Position.MIDDLE_MANAGER)
+                    .position(Position.MID_MANAGER)
                     .workExperienceTotal(24)
                     .workExperienceCurrent(12)
                     .build())

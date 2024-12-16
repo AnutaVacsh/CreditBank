@@ -19,16 +19,22 @@ import ru.vaschenko.deal.models.json.PaymentScheduleElement;
 public class Credit {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
+  @Column(name = "credit_id")
   private UUID creditId;
 
+  @Column(name = "amount")
   private BigDecimal amount;
 
+  @Column(name = "term")
   private Integer term;
 
+  @Column(name = "monthly_payment")
   private BigDecimal monthlyPayment;
 
+  @Column(name = "rate")
   private BigDecimal rate;
 
+  @Column(name = "psk")
   private BigDecimal psk;
 
   @JdbcTypeCode(SqlTypes.JSON)
@@ -37,10 +43,13 @@ public class Credit {
   @EqualsAndHashCode.Exclude
   private List<PaymentScheduleElement> paymentSchedule = new ArrayList<>();
 
+  @Column(name = "insurance_enabled")
   private Boolean insuranceEnabled;
 
+  @Column(name = "salary_client")
   private Boolean salaryClient;
 
   @Enumerated(EnumType.STRING)
+  @Column(name = "credit_status")
   private CreditStatus creditStatus;
 }

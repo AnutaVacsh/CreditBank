@@ -1,6 +1,8 @@
 package ru.vaschenko.calculator.dto.enums;
 
 public enum Position {
-  MIDDLE_MANAGER,
+  WORKER,
+  MID_MANAGER,
   TOP_MANAGER,
+  OWNER
 }
