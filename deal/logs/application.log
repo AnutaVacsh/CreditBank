@@ -1,213 +1,41 @@
-2024-12-15T14:49:32.383+04:00  INFO 5392 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 5392 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
-2024-12-15T14:49:32.411+04:00 DEBUG 5392 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
-2024-12-15T14:49:32.414+04:00  INFO 5392 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
-2024-12-15T14:49:34.505+04:00  INFO 5392 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-15T14:49:35.092+04:00  INFO 5392 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 556 ms. Found 3 JPA repository interfaces.
-2024-12-15T14:49:37.746+04:00  INFO 5392 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bc9ecddd-d990-3b0a-916f-4426048f8e5b
-2024-12-15T14:49:40.424+04:00  INFO 5392 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-12-15T14:49:40.439+04:00  INFO 5392 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-15T14:49:40.439+04:00  INFO 5392 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-15T14:49:40.541+04:00  INFO 5392 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-15T14:49:40.557+04:00  INFO 5392 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8001 ms
-2024-12-15T14:49:41.677+04:00  INFO 5392 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-15T14:49:43.094+04:00  INFO 5392 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-15T14:49:43.797+04:00  INFO 5392 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-15T14:49:46.671+04:00  INFO 5392 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-15T14:49:46.723+04:00  INFO 5392 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-15T14:49:46.968+04:00  INFO 5392 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ff5d4f1
-2024-12-15T14:49:46.968+04:00  INFO 5392 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-15T14:49:53.170+04:00  INFO 5392 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-15T14:49:53.336+04:00  INFO 5392 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T14:49:53.768+04:00  WARN 5392 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealController' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\controllers\DealController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dealServices' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\services\DealServices.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'calculatorService' defined in file [C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes\ru\vaschenko\deal\services\CalculatorService.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'ru.vaschenko.deal.client.CalculatorFacade' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-12-15T14:49:53.768+04:00  INFO 5392 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T14:49:53.768+04:00  INFO 5392 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-15T14:49:53.781+04:00  INFO 5392 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-15T14:49:53.785+04:00  INFO 5392 --- [deal] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-12-15T14:49:53.806+04:00  INFO 5392 --- [deal] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2024-12-18T14:43:56.205+04:00  INFO 16832 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 16832 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
+2024-12-18T14:43:56.253+04:00 DEBUG 16832 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-18T14:43:56.256+04:00  INFO 16832 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T14:43:58.688+04:00  INFO 16832 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T14:43:58.800+04:00  INFO 16832 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 94 ms. Found 3 JPA repository interfaces.
+2024-12-18T14:43:59.158+04:00  INFO 16832 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8fa3d760-9c50-3f3a-92f4-9de1eca85cd5
+2024-12-18T14:43:59.907+04:00  INFO 16832 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-18T14:43:59.933+04:00  INFO 16832 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T14:43:59.934+04:00  INFO 16832 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-18T14:44:00.049+04:00  INFO 16832 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T14:44:00.049+04:00  INFO 16832 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3544 ms
+2024-12-18T14:44:00.312+04:00  INFO 16832 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-18T14:44:00.705+04:00  INFO 16832 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5c3d4f05
+2024-12-18T14:44:00.708+04:00  INFO 16832 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-18T14:44:01.056+04:00  INFO 16832 --- [deal] [main] liquibase.database                       : Set default schema name to public
+2024-12-18T14:44:01.665+04:00  INFO 16832 --- [deal] [main] liquibase.command                        : Logging exception.
+2024-12-18T14:44:01.665+04:00  INFO 16832 --- [deal] [main] liquibase.ui                             : ERROR: Exception Details
+2024-12-18T14:44:01.665+04:00  INFO 16832 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2024-12-18T14:44:01.665+04:00  INFO 16832 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Reason:  The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+2024-12-18T14:44:01.665+04:00  INFO 16832 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.27.0
+2024-12-18T14:44:01.666+04:00  INFO 16832 --- [deal] [main] liquibase.command                        : Command execution complete
+2024-12-18T14:44:01.668+04:00  WARN 16832 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+2024-12-18T14:44:01.669+04:00  INFO 16832 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-18T14:44:01.687+04:00  INFO 16832 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-18T14:44:01.691+04:00  INFO 16832 --- [deal] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-18T14:44:01.705+04:00  INFO 16832 --- [deal] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-12-15T14:49:53.837+04:00 ERROR 5392 --- [deal] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2024-12-18T14:44:01.738+04:00 ERROR 16832 --- [deal] [main] o.s.boot.SpringApplication               : Application run failed
 
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 0 of constructor in ru.vaschenko.deal.services.CalculatorService required a bean of type 'ru.vaschenko.deal.client.CalculatorFacade' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'ru.vaschenko.deal.client.CalculatorFacade' in your configuration.
-
-2024-12-15T14:50:14.906+04:00  INFO 7172 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 7172 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
-2024-12-15T14:50:14.910+04:00 DEBUG 7172 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
-2024-12-15T14:50:14.911+04:00  INFO 7172 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
-2024-12-15T14:50:16.892+04:00  INFO 7172 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-15T14:50:16.998+04:00  INFO 7172 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 104 ms. Found 3 JPA repository interfaces.
-2024-12-15T14:50:17.345+04:00  INFO 7172 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=822380b4-d05d-33f9-a457-d31af80f9358
-2024-12-15T14:50:18.023+04:00  INFO 7172 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-12-15T14:50:18.039+04:00  INFO 7172 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-15T14:50:18.039+04:00  INFO 7172 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-15T14:50:18.148+04:00  INFO 7172 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-15T14:50:18.148+04:00  INFO 7172 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3094 ms
-2024-12-15T14:50:18.431+04:00  INFO 7172 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-15T14:50:18.531+04:00  INFO 7172 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-15T14:50:18.600+04:00  INFO 7172 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-15T14:50:23.757+04:00  INFO 7172 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-15T14:50:24.041+04:00  INFO 7172 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-15T14:50:24.305+04:00  INFO 7172 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@e06ec83
-2024-12-15T14:50:24.305+04:00  INFO 7172 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-15T14:50:25.691+04:00  INFO 7172 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-15T14:50:25.792+04:00  INFO 7172 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T14:50:26.192+04:00  WARN 7172 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-15T14:50:30.779+04:00  INFO 7172 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
-2024-12-15T14:50:30.999+04:00  INFO 7172 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Started DealApplication in 16.987 seconds (process running for 17.648)
-2024-12-15T14:50:42.741+04:00  INFO 7172 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T14:50:42.757+04:00  INFO 7172 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-15T14:50:42.765+04:00  INFO 7172 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-15T15:51:55.724+04:00  INFO 16000 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 16000 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
-2024-12-15T15:51:55.748+04:00 DEBUG 16000 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
-2024-12-15T15:51:55.766+04:00  INFO 16000 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
-2024-12-15T15:52:07.325+04:00  INFO 16000 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-15T15:52:09.004+04:00  INFO 16000 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1493 ms. Found 3 JPA repository interfaces.
-2024-12-15T15:52:12.335+04:00  INFO 16000 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=822380b4-d05d-33f9-a457-d31af80f9358
-2024-12-15T15:52:17.577+04:00  INFO 16000 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-12-15T15:52:18.014+04:00  INFO 16000 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-15T15:52:18.021+04:00  INFO 16000 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-15T15:52:18.301+04:00  INFO 16000 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-15T15:52:18.302+04:00  INFO 16000 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 21141 ms
-2024-12-15T15:52:19.916+04:00  INFO 16000 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-15T15:52:22.046+04:00  INFO 16000 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-15T15:52:23.371+04:00  INFO 16000 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-15T15:52:26.927+04:00  INFO 16000 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-15T15:52:27.915+04:00  INFO 16000 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-15T15:52:30.153+04:00  INFO 16000 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ff5d4f1
-2024-12-15T15:52:30.156+04:00  INFO 16000 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-15T15:52:32.227+04:00  INFO 11304 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 11304 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
-2024-12-15T15:52:32.248+04:00 DEBUG 11304 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
-2024-12-15T15:52:32.271+04:00  INFO 11304 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
-2024-12-15T15:52:50.039+04:00  INFO 11304 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-15T15:52:50.299+04:00  INFO 16000 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-15T15:52:51.705+04:00  INFO 11304 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1484 ms. Found 3 JPA repository interfaces.
-2024-12-15T15:52:52.604+04:00  INFO 16000 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T15:52:53.732+04:00  INFO 11304 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=822380b4-d05d-33f9-a457-d31af80f9358
-2024-12-15T15:52:54.653+04:00  WARN 16000 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-15T15:53:05.097+04:00  INFO 11304 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-12-15T15:53:05.141+04:00  INFO 11304 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-15T15:53:05.142+04:00  INFO 11304 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-15T15:53:05.445+04:00  INFO 11304 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-15T15:53:05.446+04:00  INFO 11304 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 30152 ms
-2024-12-15T15:53:11.110+04:00  INFO 11304 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-15T15:53:12.246+04:00  INFO 11304 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-15T15:53:13.311+04:00  INFO 11304 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-15T15:53:14.247+04:00  INFO 16000 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
-2024-12-15T15:53:14.670+04:00  INFO 16000 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Started DealApplication in 85.495 seconds (process running for 86.777)
-2024-12-15T15:53:16.816+04:00  INFO 11304 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-15T15:53:16.855+04:00  INFO 11304 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-15T15:53:17.111+04:00  INFO 11304 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1c90029b
-2024-12-15T15:53:17.116+04:00  INFO 11304 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-15T15:53:23.393+04:00  INFO 11304 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-15T15:53:23.511+04:00  INFO 11304 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T15:53:23.823+04:00  WARN 11304 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-15T15:53:29.929+04:00  WARN 11304 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2024-12-15T15:53:29.933+04:00  INFO 11304 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T15:53:29.937+04:00  INFO 11304 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-15T15:53:29.944+04:00  INFO 11304 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-15T15:53:29.973+04:00  INFO 11304 --- [deal] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-12-15T15:53:30.178+04:00 ERROR 11304 --- [deal] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8081 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
-
-2024-12-15T15:54:01.094+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-15T15:54:01.095+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-15T15:54:01.099+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2024-12-15T15:54:03.469+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1421 ms
-2024-12-15T15:54:12.408+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-4] r.vaschenko.deal.services.ClientService  : save client Client(clientId=null, lastName=Doe, firstName=John, middleName=Ivanovich, birthdate=1990-05-01, email=example@example.com, gender=null, maritalStatus=null, dependentAmount=null, accountNumber=null)
-2024-12-15T15:54:12.625+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-4] r.v.deal.services.StatementService       : save statement: Statement(statementId=null, status=PREAPPROVAL, creationDate=2024-12-15T15:54:12.625610, signDate=null, sesCode=null)
-2024-12-15T15:54:12.653+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-4] r.v.deal.client.impl.CalculatorFacade    : Sending request to get loan offers with data LoanStatementRequestDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, email=example@example.com, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456)
-2024-12-15T15:54:13.127+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-4] r.v.deal.client.impl.CalculatorFacade    : Response from calculator service received successfully, return data [LoanOfferDto(statementId=9fa442c0-2e28-420d-b907-caca3cd571e1, requestedAmount=50000, totalAmount=50000, term=24, monthlyPayment=2424.33, rate=15, isInsuranceEnabled=false, isSalaryClient=false), LoanOfferDto(statementId=0a294ef6-47a1-4fec-839f-a614b677c173, requestedAmount=50000, totalAmount=150000, term=24, monthlyPayment=7201.93, rate=14, isInsuranceEnabled=true, isSalaryClient=false), LoanOfferDto(statementId=d94486fb-c1c5-4186-a802-18faf6f6fcb0, requestedAmount=50000, totalAmount=50000, term=24, monthlyPayment=2353.67, rate=12, isInsuranceEnabled=false, isSalaryClient=true), LoanOfferDto(statementId=72077c01-72f8-4f7f-a754-1d25f35d3e10, requestedAmount=50000, totalAmount=150000, term=24, monthlyPayment=6991.18, rate=11, isInsuranceEnabled=true, isSalaryClient=true)]
-2024-12-15T15:54:13.134+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-4] r.vaschenko.deal.services.DealServices   : Created list of offers: [LoanOfferDto(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, requestedAmount=50000, totalAmount=50000, term=24, monthlyPayment=2424.33, rate=15, isInsuranceEnabled=false, isSalaryClient=false), LoanOfferDto(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, requestedAmount=50000, totalAmount=150000, term=24, monthlyPayment=7201.93, rate=14, isInsuranceEnabled=true, isSalaryClient=false), LoanOfferDto(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, requestedAmount=50000, totalAmount=50000, term=24, monthlyPayment=2353.67, rate=12, isInsuranceEnabled=false, isSalaryClient=true), LoanOfferDto(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, requestedAmount=50000, totalAmount=150000, term=24, monthlyPayment=6991.18, rate=11, isInsuranceEnabled=true, isSalaryClient=true)]
-2024-12-15T15:54:37.152+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-3] r.v.deal.services.StatementService       : find statement by ID: cbcc59c6-7393-4620-b4ca-6fba1591fc51
-2024-12-15T15:54:37.291+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-3] r.v.deal.services.StatementService       : save statement: Statement(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, status=APPROVED, creationDate=2024-12-15T15:54:12.625610, signDate=null, sesCode=null)
-2024-12-15T16:03:53.785+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-8] r.vaschenko.deal.services.DealServices   : The registration completion process has begun.
-2024-12-15T16:03:53.788+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-8] r.v.deal.services.StatementService       : find statement by ID: cbcc59c6-7393-4620-b4ca-6fba1591fc51
-2024-12-15T16:03:53.809+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-8] r.v.deal.services.StatementService       : save statement: Statement(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, status=CC_APPROVED, creationDate=2024-12-15T15:54:12.625610, signDate=null, sesCode=null)
-2024-12-15T16:03:53.814+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-8] r.v.deal.client.impl.CalculatorFacade    : Sending request to get credit calculation with data: ScoringDataDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, gender=MALE, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456, passportIssueDate=2022-01-15, passportIssueBranch=770-001, maritalStatus=MARRIED, dependentAmount=2, employment=EmploymentDto(employmentStatus=UNEMPLOYED, employerINN=7712345678, salary=75000, position=WORKER, workExperienceTotal=120, workExperienceCurrent=24), accountNumber=40817810099910004312, isInsuranceEnabled=false, isSalaryClient=false)
-2024-12-15T16:03:53.888+04:00 ERROR 16000 --- [deal] [http-nio-8081-exec-8] r.v.deal.client.impl.CalculatorFacade    : (Request failed due to error: [500] during [POST] to [http://localhost:8080/calculator/calc] [CalculatorClient#getCredit(ScoringDataDto)]: [{"error":"Internal Server Error","message":"An unexpected error occurred: JSON parse error: Cannot deserialize value of type `ru.vaschenko.calculator.dto.enums.Position` from String \"WORKER\": not one of the values accepted for Enum class: [MIDDLE_MANAGER, TOP_MANAGER]","timestamp":"2024-12-15T16:03:53.8717499","status":500}]
-2024-12-15T16:08:39.045+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-1] r.vaschenko.deal.services.DealServices   : The registration completion process has begun.
-2024-12-15T16:08:39.047+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-1] r.v.deal.services.StatementService       : find statement by ID: cbcc59c6-7393-4620-b4ca-6fba1591fc51
-2024-12-15T16:08:39.058+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-1] r.v.deal.services.StatementService       : save statement: Statement(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, status=CC_APPROVED, creationDate=2024-12-15T15:54:12.625610, signDate=null, sesCode=null)
-2024-12-15T16:08:39.065+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-1] r.v.deal.client.impl.CalculatorFacade    : Sending request to get credit calculation with data: ScoringDataDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, gender=MALE, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456, passportIssueDate=2022-01-15, passportIssueBranch=770-001, maritalStatus=MARRIED, dependentAmount=2, employment=EmploymentDto(employmentStatus=UNEMPLOYED, employerINN=7712345678, salary=75000, position=WORKER, workExperienceTotal=120, workExperienceCurrent=24), accountNumber=40817810099910004312, isInsuranceEnabled=false, isSalaryClient=false)
-2024-12-15T16:08:39.590+04:00 ERROR 16000 --- [deal] [http-nio-8081-exec-1] r.v.deal.client.impl.CalculatorFacade    : (Request failed due to error: [400] during [POST] to [http://localhost:8080/calculator/calc] [CalculatorClient#getCredit(ScoringDataDto)]: [{"message":"Loan denied: Unemployed"}]
-2024-12-15T16:09:01.473+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-10] r.vaschenko.deal.services.DealServices   : The registration completion process has begun.
-2024-12-15T16:09:01.474+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-10] r.v.deal.services.StatementService       : find statement by ID: cbcc59c6-7393-4620-b4ca-6fba1591fc51
-2024-12-15T16:09:01.485+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-10] r.v.deal.services.StatementService       : save statement: Statement(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, status=CC_APPROVED, creationDate=2024-12-15T15:54:12.625610, signDate=null, sesCode=null)
-2024-12-15T16:09:01.493+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-10] r.v.deal.client.impl.CalculatorFacade    : Sending request to get credit calculation with data: ScoringDataDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, gender=MALE, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456, passportIssueDate=2022-01-15, passportIssueBranch=770-001, maritalStatus=MARRIED, dependentAmount=2, employment=EmploymentDto(employmentStatus=EMPLOYED, employerINN=7712345678, salary=75000, position=WORKER, workExperienceTotal=120, workExperienceCurrent=24), accountNumber=40817810099910004312, isInsuranceEnabled=false, isSalaryClient=false)
-2024-12-15T16:09:01.597+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-10] r.v.deal.client.impl.CalculatorFacade    : Response from calculator service received successfully, return data CreditDto(amount=50000, term=24, monthlyPayment=2284.24, rate=9, psk=9.6400, isInsuranceEnabled=false, isSalaryClient=false, paymentSchedule=[PaymentScheduleElementDto(number=1, date=2025-01-15, totalPayment=2284.24, interestPayment=375.00, debtPayment=1909.24, remainingDebt=48090.76), PaymentScheduleElementDto(number=2, date=2025-02-15, totalPayment=2284.24, interestPayment=360.68, debtPayment=1923.56, remainingDebt=46167.20), PaymentScheduleElementDto(number=3, date=2025-03-15, totalPayment=2284.24, interestPayment=346.25, debtPayment=1937.99, remainingDebt=44229.21), PaymentScheduleElementDto(number=4, date=2025-04-15, totalPayment=2284.24, interestPayment=331.72, debtPayment=1952.52, remainingDebt=42276.69), PaymentScheduleElementDto(number=5, date=2025-05-15, totalPayment=2284.24, interestPayment=317.08, debtPayment=1967.16, remainingDebt=40309.53), PaymentScheduleElementDto(number=6, date=2025-06-15, totalPayment=2284.24, interestPayment=302.32, debtPayment=1981.92, remainingDebt=38327.61), PaymentScheduleElementDto(number=7, date=2025-07-15, totalPayment=2284.24, interestPayment=287.46, debtPayment=1996.78, remainingDebt=36330.83), PaymentScheduleElementDto(number=8, date=2025-08-15, totalPayment=2284.24, interestPayment=272.48, debtPayment=2011.76, remainingDebt=34319.07), PaymentScheduleElementDto(number=9, date=2025-09-15, totalPayment=2284.24, interestPayment=257.39, debtPayment=2026.85, remainingDebt=32292.22), PaymentScheduleElementDto(number=10, date=2025-10-15, totalPayment=2284.24, interestPayment=242.19, debtPayment=2042.05, remainingDebt=30250.17), PaymentScheduleElementDto(number=11, date=2025-11-15, totalPayment=2284.24, interestPayment=226.88, debtPayment=2057.36, remainingDebt=28192.81), PaymentScheduleElementDto(number=12, date=2025-12-15, totalPayment=2284.24, interestPayment=211.45, debtPayment=2072.79, remainingDebt=26120.02), PaymentScheduleElementDto(number=13, date=2026-01-15, totalPayment=2284.24, interestPayment=195.90, debtPayment=2088.34, remainingDebt=24031.68), PaymentScheduleElementDto(number=14, date=2026-02-15, totalPayment=2284.24, interestPayment=180.24, debtPayment=2104.00, remainingDebt=21927.68), PaymentScheduleElementDto(number=15, date=2026-03-15, totalPayment=2284.24, interestPayment=164.46, debtPayment=2119.78, remainingDebt=19807.90), PaymentScheduleElementDto(number=16, date=2026-04-15, totalPayment=2284.24, interestPayment=148.56, debtPayment=2135.68, remainingDebt=17672.22), PaymentScheduleElementDto(number=17, date=2026-05-15, totalPayment=2284.24, interestPayment=132.54, debtPayment=2151.70, remainingDebt=15520.52), PaymentScheduleElementDto(number=18, date=2026-06-15, totalPayment=2284.24, interestPayment=116.40, debtPayment=2167.84, remainingDebt=13352.68), PaymentScheduleElementDto(number=19, date=2026-07-15, totalPayment=2284.24, interestPayment=100.15, debtPayment=2184.09, remainingDebt=11168.59), PaymentScheduleElementDto(number=20, date=2026-08-15, totalPayment=2284.24, interestPayment=83.76, debtPayment=2200.48, remainingDebt=8968.11), PaymentScheduleElementDto(number=21, date=2026-09-15, totalPayment=2284.24, interestPayment=67.26, debtPayment=2216.98, remainingDebt=6751.13), PaymentScheduleElementDto(number=22, date=2026-10-15, totalPayment=2284.24, interestPayment=50.63, debtPayment=2233.61, remainingDebt=4517.52), PaymentScheduleElementDto(number=23, date=2026-11-15, totalPayment=2284.24, interestPayment=33.88, debtPayment=2250.36, remainingDebt=2267.16), PaymentScheduleElementDto(number=24, date=2026-12-15, totalPayment=2284.24, interestPayment=17.00, debtPayment=2267.24, remainingDebt=-0.08)])
-2024-12-15T16:09:01.599+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-10] r.vaschenko.deal.services.CreditService  : safe credit Credit(creditId=null, amount=50000, term=24, monthlyPayment=2284.24, rate=9, psk=9.6400, insuranceEnabled=false, salaryClient=false, creditStatus=CALCULATED)
-2024-12-15T16:09:42.454+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-9] r.vaschenko.deal.services.DealServices   : The registration completion process has begun.
-2024-12-15T16:09:42.454+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-9] r.v.deal.services.StatementService       : find statement by ID: cbcc59c6-7393-4620-b4ca-6fba1591fc51
-2024-12-15T16:09:42.472+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-9] r.v.deal.services.StatementService       : save statement: Statement(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, status=CC_APPROVED, creationDate=2024-12-15T15:54:12.625610, signDate=null, sesCode=null)
-2024-12-15T16:09:42.489+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-9] r.v.deal.client.impl.CalculatorFacade    : Sending request to get credit calculation with data: ScoringDataDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, gender=MALE, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456, passportIssueDate=2022-01-15, passportIssueBranch=770-001, maritalStatus=MARRIED, dependentAmount=2, employment=EmploymentDto(employmentStatus=UNEMPLOYED, employerINN=7712345678, salary=75000, position=WORKER, workExperienceTotal=120, workExperienceCurrent=24), accountNumber=40817810099910004312, isInsuranceEnabled=false, isSalaryClient=false)
-2024-12-15T16:09:42.505+04:00 ERROR 16000 --- [deal] [http-nio-8081-exec-9] r.v.deal.client.impl.CalculatorFacade    : (Request failed due to error: [400] during [POST] to [http://localhost:8080/calculator/calc] [CalculatorClient#getCredit(ScoringDataDto)]: [{"message":"Loan denied: Unemployed"}]
-2024-12-15T16:14:05.455+04:00  INFO 16000 --- [deal] [http-nio-8081-exec-5] r.vaschenko.deal.services.DealServices   : The registration completion process has begun.
-2024-12-15T16:14:05.455+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-5] r.v.deal.services.StatementService       : find statement by ID: cbcc59c6-7393-4620-b4ca-6fba1591fc51
-2024-12-15T16:14:05.480+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-5] r.v.deal.services.StatementService       : save statement: Statement(statementId=cbcc59c6-7393-4620-b4ca-6fba1591fc51, status=CC_APPROVED, creationDate=2024-12-15T15:54:12.625610, signDate=null, sesCode=null)
-2024-12-15T16:14:05.485+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-5] r.v.deal.client.impl.CalculatorFacade    : Sending request to get credit calculation with data: ScoringDataDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, gender=MALE, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456, passportIssueDate=2022-01-15, passportIssueBranch=770-001, maritalStatus=MARRIED, dependentAmount=2, employment=EmploymentDto(employmentStatus=EMPLOYED, employerINN=7712345678, salary=75000, position=WORKER, workExperienceTotal=120, workExperienceCurrent=24), accountNumber=40817810099910004312, isInsuranceEnabled=false, isSalaryClient=false)
-2024-12-15T16:14:05.521+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-5] r.v.deal.client.impl.CalculatorFacade    : Response from calculator service received successfully, return data CreditDto(amount=50000, term=24, monthlyPayment=2284.24, rate=9, psk=9.6400, isInsuranceEnabled=false, isSalaryClient=false, paymentSchedule=[PaymentScheduleElementDto(number=1, date=2025-01-15, totalPayment=2284.24, interestPayment=375.00, debtPayment=1909.24, remainingDebt=48090.76), PaymentScheduleElementDto(number=2, date=2025-02-15, totalPayment=2284.24, interestPayment=360.68, debtPayment=1923.56, remainingDebt=46167.20), PaymentScheduleElementDto(number=3, date=2025-03-15, totalPayment=2284.24, interestPayment=346.25, debtPayment=1937.99, remainingDebt=44229.21), PaymentScheduleElementDto(number=4, date=2025-04-15, totalPayment=2284.24, interestPayment=331.72, debtPayment=1952.52, remainingDebt=42276.69), PaymentScheduleElementDto(number=5, date=2025-05-15, totalPayment=2284.24, interestPayment=317.08, debtPayment=1967.16, remainingDebt=40309.53), PaymentScheduleElementDto(number=6, date=2025-06-15, totalPayment=2284.24, interestPayment=302.32, debtPayment=1981.92, remainingDebt=38327.61), PaymentScheduleElementDto(number=7, date=2025-07-15, totalPayment=2284.24, interestPayment=287.46, debtPayment=1996.78, remainingDebt=36330.83), PaymentScheduleElementDto(number=8, date=2025-08-15, totalPayment=2284.24, interestPayment=272.48, debtPayment=2011.76, remainingDebt=34319.07), PaymentScheduleElementDto(number=9, date=2025-09-15, totalPayment=2284.24, interestPayment=257.39, debtPayment=2026.85, remainingDebt=32292.22), PaymentScheduleElementDto(number=10, date=2025-10-15, totalPayment=2284.24, interestPayment=242.19, debtPayment=2042.05, remainingDebt=30250.17), PaymentScheduleElementDto(number=11, date=2025-11-15, totalPayment=2284.24, interestPayment=226.88, debtPayment=2057.36, remainingDebt=28192.81), PaymentScheduleElementDto(number=12, date=2025-12-15, totalPayment=2284.24, interestPayment=211.45, debtPayment=2072.79, remainingDebt=26120.02), PaymentScheduleElementDto(number=13, date=2026-01-15, totalPayment=2284.24, interestPayment=195.90, debtPayment=2088.34, remainingDebt=24031.68), PaymentScheduleElementDto(number=14, date=2026-02-15, totalPayment=2284.24, interestPayment=180.24, debtPayment=2104.00, remainingDebt=21927.68), PaymentScheduleElementDto(number=15, date=2026-03-15, totalPayment=2284.24, interestPayment=164.46, debtPayment=2119.78, remainingDebt=19807.90), PaymentScheduleElementDto(number=16, date=2026-04-15, totalPayment=2284.24, interestPayment=148.56, debtPayment=2135.68, remainingDebt=17672.22), PaymentScheduleElementDto(number=17, date=2026-05-15, totalPayment=2284.24, interestPayment=132.54, debtPayment=2151.70, remainingDebt=15520.52), PaymentScheduleElementDto(number=18, date=2026-06-15, totalPayment=2284.24, interestPayment=116.40, debtPayment=2167.84, remainingDebt=13352.68), PaymentScheduleElementDto(number=19, date=2026-07-15, totalPayment=2284.24, interestPayment=100.15, debtPayment=2184.09, remainingDebt=11168.59), PaymentScheduleElementDto(number=20, date=2026-08-15, totalPayment=2284.24, interestPayment=83.76, debtPayment=2200.48, remainingDebt=8968.11), PaymentScheduleElementDto(number=21, date=2026-09-15, totalPayment=2284.24, interestPayment=67.26, debtPayment=2216.98, remainingDebt=6751.13), PaymentScheduleElementDto(number=22, date=2026-10-15, totalPayment=2284.24, interestPayment=50.63, debtPayment=2233.61, remainingDebt=4517.52), PaymentScheduleElementDto(number=23, date=2026-11-15, totalPayment=2284.24, interestPayment=33.88, debtPayment=2250.36, remainingDebt=2267.16), PaymentScheduleElementDto(number=24, date=2026-12-15, totalPayment=2284.24, interestPayment=17.00, debtPayment=2267.24, remainingDebt=-0.08)])
-2024-12-15T16:14:05.522+04:00 DEBUG 16000 --- [deal] [http-nio-8081-exec-5] r.vaschenko.deal.services.CreditService  : safe credit Credit(creditId=null, amount=50000, term=24, monthlyPayment=2284.24, rate=9, psk=9.6400, insuranceEnabled=false, salaryClient=false, creditStatus=CALCULATED)
-2024-12-15T16:14:10.364+04:00  INFO 16000 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T16:14:10.369+04:00  INFO 16000 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-15T16:14:10.384+04:00  INFO 16000 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-15T16:28:53.630+04:00  INFO 16776 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 16776 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
-2024-12-15T16:28:53.634+04:00 DEBUG 16776 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
-2024-12-15T16:28:53.636+04:00  INFO 16776 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
-2024-12-15T16:28:55.630+04:00  INFO 16776 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-15T16:28:55.773+04:00  INFO 16776 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 3 JPA repository interfaces.
-2024-12-15T16:28:56.144+04:00  INFO 16776 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=822380b4-d05d-33f9-a457-d31af80f9358
-2024-12-15T16:28:56.847+04:00  INFO 16776 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-12-15T16:28:56.872+04:00  INFO 16776 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-15T16:28:56.872+04:00  INFO 16776 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-15T16:28:56.983+04:00  INFO 16776 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-15T16:28:56.983+04:00  INFO 16776 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3214 ms
-2024-12-15T16:28:57.318+04:00  INFO 16776 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-15T16:28:57.457+04:00  INFO 16776 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-15T16:28:57.538+04:00  INFO 16776 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-15T16:28:58.102+04:00  INFO 16776 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-15T16:28:58.153+04:00  INFO 16776 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-15T16:28:58.396+04:00  INFO 16776 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e8d9bb6
-2024-12-15T16:28:58.398+04:00  INFO 16776 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-15T16:28:59.067+04:00 ERROR 16776 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'payment_schedule' is duplicated in mapping for entity 'ru.vaschenko.deal.models.Credit' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
-2024-12-15T16:28:59.068+04:00  WARN 16776 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'payment_schedule' is duplicated in mapping for entity 'ru.vaschenko.deal.models.Credit' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
-2024-12-15T16:28:59.068+04:00  INFO 16776 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-15T16:28:59.125+04:00  INFO 16776 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-15T16:28:59.129+04:00  INFO 16776 --- [deal] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-12-15T16:28:59.159+04:00  INFO 16776 --- [deal] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-12-15T16:28:59.189+04:00 ERROR 16776 --- [deal] [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'payment_schedule' is duplicated in mapping for entity 'ru.vaschenko.deal.models.Credit' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326) ~[spring-beans-6.1.14.jar:6.1.14]
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.14.jar:6.1.14]
 	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.14.jar:6.1.14]
 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
@@ -218,77 +46,711 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
 	at ru.vaschenko.deal.DealApplication.main(DealApplication.java:15) ~[classes/:na]
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'payment_schedule' is duplicated in mapping for entity 'ru.vaschenko.deal.models.Credit' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.14.jar:6.1.14]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 10 common frames omitted
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259) ~[liquibase-core-4.27.0.jar:na]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
-	... 15 common frames omitted
-Caused by: org.hibernate.MappingException: Column 'payment_schedule' is duplicated in mapping for entity 'ru.vaschenko.deal.models.Credit' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
-	at org.hibernate.mapping.Value.checkColumnDuplication(Value.java:196) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.mapping.MappingHelper.checkPropertyColumnDuplication(MappingHelper.java:251) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.mapping.PersistentClass.checkColumnDuplication(PersistentClass.java:939) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:694) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.mapping.RootClass.validate(RootClass.java:276) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:496) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:280) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.14.jar:6.1.14]
+	... 17 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.command.CommandScope.execute(CommandScope.java:257) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:1436) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:234) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:212) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:297) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:249) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:256) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242) ~[liquibase-core-4.27.0.jar:na]
 	... 19 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:25) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:175) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.CommandScope.execute(CommandScope.java:219) ~[liquibase-core-4.27.0.jar:na]
+	... 35 common frames omitted
+Caused by: liquibase.exception.SetupException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:465) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.DatabaseChangeLog.load(DatabaseChangeLog.java:390) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:23) ~[liquibase-core-4.27.0.jar:na]
+	... 41 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:987) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:455) ~[liquibase-core-4.27.0.jar:na]
+	... 43 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: The file db.changelog-client.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:949) ~[liquibase-core-4.27.0.jar:na]
+	... 44 common frames omitted
 
-2024-12-15T16:31:25.858+04:00  INFO 6512 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 6512 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
-2024-12-15T16:31:25.864+04:00 DEBUG 6512 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
-2024-12-15T16:31:25.867+04:00  INFO 6512 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
-2024-12-15T16:31:28.215+04:00  INFO 6512 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-15T16:31:28.346+04:00  INFO 6512 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 3 JPA repository interfaces.
-2024-12-15T16:31:28.671+04:00  INFO 6512 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=822380b4-d05d-33f9-a457-d31af80f9358
-2024-12-15T16:31:29.379+04:00  INFO 6512 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-12-15T16:31:29.401+04:00  INFO 6512 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-15T16:31:29.401+04:00  INFO 6512 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-15T16:31:29.501+04:00  INFO 6512 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-15T16:31:29.502+04:00  INFO 6512 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3488 ms
-2024-12-15T16:31:29.803+04:00  INFO 6512 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-15T16:31:29.913+04:00  INFO 6512 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-15T16:31:29.975+04:00  INFO 6512 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-15T16:31:30.498+04:00  INFO 6512 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-15T16:31:30.542+04:00  INFO 6512 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-15T16:31:30.829+04:00  INFO 6512 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79b7c350
-2024-12-15T16:31:30.832+04:00  INFO 6512 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-15T16:31:32.218+04:00  INFO 6512 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-15T16:31:32.334+04:00  INFO 6512 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T16:31:32.688+04:00  WARN 6512 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-15T16:31:34.118+04:00  INFO 6512 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
-2024-12-15T16:31:34.141+04:00  INFO 6512 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Started DealApplication in 9.419 seconds (process running for 10.176)
-2024-12-15T16:31:38.705+04:00  INFO 6512 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T16:31:38.709+04:00  INFO 6512 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-15T16:31:38.717+04:00  INFO 6512 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-15T17:56:44.265+04:00  INFO 15688 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 15688 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
-2024-12-15T17:56:44.266+04:00 DEBUG 15688 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
-2024-12-15T17:56:44.273+04:00  INFO 15688 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
-2024-12-15T17:56:46.167+04:00  INFO 15688 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-15T17:56:46.298+04:00  INFO 15688 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 3 JPA repository interfaces.
-2024-12-15T17:56:46.699+04:00  INFO 15688 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=822380b4-d05d-33f9-a457-d31af80f9358
-2024-12-15T17:56:47.432+04:00  INFO 15688 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-12-15T17:56:47.463+04:00  INFO 15688 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-15T17:56:47.463+04:00  INFO 15688 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-15T17:56:47.569+04:00  INFO 15688 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-15T17:56:47.569+04:00  INFO 15688 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3154 ms
-2024-12-15T17:56:47.870+04:00  INFO 15688 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-15T17:56:47.985+04:00  INFO 15688 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-15T17:56:48.048+04:00  INFO 15688 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-15T17:56:48.517+04:00  INFO 15688 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-15T17:56:48.570+04:00  INFO 15688 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-15T17:56:48.849+04:00  INFO 15688 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6253e59a
-2024-12-15T17:56:48.864+04:00  INFO 15688 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-15T17:56:50.203+04:00  INFO 15688 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-15T17:56:50.319+04:00  INFO 15688 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T17:56:50.652+04:00  WARN 15688 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-15T17:56:52.012+04:00  INFO 15688 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
-2024-12-15T17:56:52.027+04:00  INFO 15688 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Started DealApplication in 8.842 seconds (process running for 9.747)
-2024-12-15T17:56:57.533+04:00  INFO 15688 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-15T17:56:57.549+04:00  INFO 15688 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-15T17:56:57.556+04:00  INFO 15688 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-18T14:47:17.626+04:00  INFO 16408 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 16408 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
+2024-12-18T14:47:17.631+04:00 DEBUG 16408 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-18T14:47:17.633+04:00  INFO 16408 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T14:47:19.499+04:00  INFO 16408 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T14:47:19.652+04:00  INFO 16408 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 3 JPA repository interfaces.
+2024-12-18T14:47:20.058+04:00  INFO 16408 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8fa3d760-9c50-3f3a-92f4-9de1eca85cd5
+2024-12-18T14:47:20.823+04:00  INFO 16408 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-18T14:47:20.842+04:00  INFO 16408 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T14:47:20.843+04:00  INFO 16408 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-18T14:47:20.935+04:00  INFO 16408 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T14:47:20.935+04:00  INFO 16408 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3186 ms
+2024-12-18T14:47:21.252+04:00  INFO 16408 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-18T14:47:21.595+04:00  INFO 16408 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7c588adc
+2024-12-18T14:47:21.598+04:00  INFO 16408 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-18T14:47:21.906+04:00  INFO 16408 --- [deal] [main] liquibase.database                       : Set default schema name to public
+2024-12-18T14:47:22.514+04:00 ERROR 16408 --- [deal] [main] liquibase.parser                         : cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+2024-12-18T14:47:22.520+04:00  INFO 16408 --- [deal] [main] liquibase.command                        : Logging exception.
+2024-12-18T14:47:22.521+04:00  INFO 16408 --- [deal] [main] liquibase.ui                             : ERROR: Exception Details
+2024-12-18T14:47:22.521+04:00  INFO 16408 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Class:  SAXParseException
+2024-12-18T14:47:22.521+04:00  INFO 16408 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Reason:  cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+2024-12-18T14:47:22.522+04:00  INFO 16408 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Source:  PostgreSQL 16.4
+2024-12-18T14:47:22.522+04:00  INFO 16408 --- [deal] [main] liquibase.command                        : Command execution complete
+2024-12-18T14:47:22.526+04:00  WARN 16408 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+2024-12-18T14:47:22.526+04:00  INFO 16408 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-18T14:47:22.716+04:00  INFO 16408 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-18T14:47:22.722+04:00  INFO 16408 --- [deal] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-18T14:47:22.741+04:00  INFO 16408 --- [deal] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-18T14:47:22.789+04:00 ERROR 16408 --- [deal] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at ru.vaschenko.deal.DealApplication.main(DealApplication.java:15) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 10 common frames omitted
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259) ~[liquibase-core-4.27.0.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 17 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at liquibase.command.CommandScope.execute(CommandScope.java:257) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:1436) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:234) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:212) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:297) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:249) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:256) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242) ~[liquibase-core-4.27.0.jar:na]
+	... 19 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:25) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:175) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.CommandScope.execute(CommandScope.java:219) ~[liquibase-core-4.27.0.jar:na]
+	... 35 common frames omitted
+Caused by: liquibase.exception.SetupException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:465) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.DatabaseChangeLog.load(DatabaseChangeLog.java:390) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:23) ~[liquibase-core-4.27.0.jar:na]
+	... 41 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:987) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:455) ~[liquibase-core-4.27.0.jar:na]
+	... 43 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: Error parsing line 1 column 19 of db/changelog/db.changelog-client.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at liquibase.parser.core.xml.XMLChangeLogSAXParser.parseToNode(XMLChangeLogSAXParser.java:130) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:15) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:959) ~[liquibase-core-4.27.0.jar:na]
+	... 44 common frames omitted
+Caused by: org.xml.sax.SAXParseException: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:135) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:2133) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:830) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(XMLNSDocumentScannerImpl.java:375) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver.scanRootElementHook(XMLNSDocumentScannerImpl.java:614) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3088) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:866) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:635) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:113) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:551) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:890) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:826) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:134) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1225) ~[na:na]
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643) ~[na:na]
+	at liquibase.parser.core.xml.XMLChangeLogSAXParser.parseToNode(XMLChangeLogSAXParser.java:121) ~[liquibase-core-4.27.0.jar:na]
+	... 46 common frames omitted
+
+2024-12-18T14:52:16.282+04:00  INFO 3056 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 3056 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
+2024-12-18T14:52:16.286+04:00 DEBUG 3056 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-18T14:52:16.289+04:00  INFO 3056 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T14:52:17.994+04:00  INFO 3056 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T14:52:18.147+04:00  INFO 3056 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 136 ms. Found 3 JPA repository interfaces.
+2024-12-18T14:52:18.548+04:00  INFO 3056 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8fa3d760-9c50-3f3a-92f4-9de1eca85cd5
+2024-12-18T14:52:19.247+04:00  INFO 3056 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-18T14:52:19.267+04:00  INFO 3056 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T14:52:19.267+04:00  INFO 3056 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-18T14:52:19.360+04:00  INFO 3056 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T14:52:19.361+04:00  INFO 3056 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2950 ms
+2024-12-18T14:52:19.632+04:00  INFO 3056 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-18T14:52:19.990+04:00  INFO 3056 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67acfde9
+2024-12-18T14:52:19.993+04:00  INFO 3056 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-18T14:52:20.327+04:00  INFO 3056 --- [deal] [main] liquibase.database                       : Set default schema name to public
+2024-12-18T14:52:21.146+04:00  INFO 3056 --- [deal] [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2024-12-18T14:52:21.236+04:00  INFO 3056 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T14:52:21.403+04:00  INFO 3056 --- [deal] [main] liquibase.lockservice                    : Successfully acquired change log lock
+2024-12-18T14:52:21.406+04:00  INFO 3056 --- [deal] [main] liquibase.command                        : Using deploymentId: 4519141405
+2024-12-18T14:52:21.409+04:00  INFO 3056 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T14:52:21.455+04:00  INFO 3056 --- [deal] [main] liquibase.ui                             : Running Changeset: db/changelog/db.changelog-client.xml::1::AnutaVacsh
+2024-12-18T14:52:21.470+04:00 ERROR 3056 --- [deal] [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-client.xml::1::AnutaVacsh encountered an exception.
+
+liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:473) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:80) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:182) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1176) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:764) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:133) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:122) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:256) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:260) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:112) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:110) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.CommandScope.execute(CommandScope.java:219) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:1436) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:234) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:212) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:297) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:249) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:256) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242) ~[liquibase-core-4.27.0.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at ru.vaschenko.deal.DealApplication.main(DealApplication.java:15) ~[classes/:na]
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: отношение "client" уже существует
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312) ~[postgresql-42.7.4.jar:42.7.4]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:467) ~[liquibase-core-4.27.0.jar:na]
+	... 63 common frames omitted
+
+2024-12-18T14:52:21.493+04:00  INFO 3056 --- [deal] [main] liquibase.util                           : UPDATE SUMMARY
+2024-12-18T14:52:21.494+04:00  INFO 3056 --- [deal] [main] liquibase.util                           : Run:                          0
+2024-12-18T14:52:21.494+04:00  INFO 3056 --- [deal] [main] liquibase.util                           : Previously run:               0
+2024-12-18T14:52:21.494+04:00  INFO 3056 --- [deal] [main] liquibase.util                           : Filtered out:                 0
+2024-12-18T14:52:21.494+04:00  INFO 3056 --- [deal] [main] liquibase.util                           : -------------------------------
+2024-12-18T14:52:21.494+04:00  INFO 3056 --- [deal] [main] liquibase.util                           : Total change sets:            0
+2024-12-18T14:52:21.496+04:00  INFO 3056 --- [deal] [main] liquibase.util                           : Update summary generated
+2024-12-18T14:52:21.499+04:00  INFO 3056 --- [deal] [main] liquibase.command                        : Update command encountered an exception.
+2024-12-18T14:52:21.505+04:00  INFO 3056 --- [deal] [main] liquibase.lockservice                    : Successfully released change log lock
+2024-12-18T14:52:21.509+04:00  INFO 3056 --- [deal] [main] liquibase.command                        : Logging exception.
+2024-12-18T14:52:21.510+04:00  INFO 3056 --- [deal] [main] liquibase.ui                             : ERROR: Exception Details
+2024-12-18T14:52:21.510+04:00  INFO 3056 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Class:  PSQLException
+2024-12-18T14:52:21.510+04:00  INFO 3056 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Reason:  ОШИБКА: отношение "client" уже существует
+2024-12-18T14:52:21.511+04:00  INFO 3056 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Source:  PostgreSQL 16.4
+2024-12-18T14:52:21.511+04:00  INFO 3056 --- [deal] [main] liquibase.command                        : Command execution complete
+2024-12-18T14:52:21.514+04:00  WARN 3056 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/db.changelog-client.xml::1::AnutaVacsh:
+     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+2024-12-18T14:52:21.515+04:00  INFO 3056 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-18T14:52:21.523+04:00  INFO 3056 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-18T14:52:21.531+04:00  INFO 3056 --- [deal] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-18T14:52:21.554+04:00  INFO 3056 --- [deal] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-18T14:52:21.590+04:00 ERROR 3056 --- [deal] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/db.changelog-client.xml::1::AnutaVacsh:
+     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at ru.vaschenko.deal.DealApplication.main(DealApplication.java:15) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/db.changelog-client.xml::1::AnutaVacsh:
+     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 10 common frames omitted
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/db.changelog-client.xml::1::AnutaVacsh:
+     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259) ~[liquibase-core-4.27.0.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 17 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/db.changelog-client.xml::1::AnutaVacsh:
+     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+	at liquibase.command.CommandScope.execute(CommandScope.java:257) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:1436) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:234) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:212) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:297) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:249) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:256) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242) ~[liquibase-core-4.27.0.jar:na]
+	... 19 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/db.changelog-client.xml::1::AnutaVacsh:
+     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:151) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:112) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:110) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.CommandScope.execute(CommandScope.java:219) ~[liquibase-core-4.27.0.jar:na]
+	... 35 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/db.changelog-client.xml::1::AnutaVacsh:
+     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:808) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:133) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:122) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:256) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:260) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89) ~[liquibase-core-4.27.0.jar:na]
+	... 43 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ОШИБКА: отношение "client" уже существует [Failed SQL: (0) CREATE TABLE public.client (client_id UUID NOT NULL, last_name VARCHAR(255), first_name VARCHAR(255), middle_name VARCHAR(255), birth_date date, email VARCHAR(255), gender VARCHAR(50), marital_status VARCHAR(50), dependent_amount INTEGER, passport_id JSONB, employment_id JSONB, account_number VARCHAR(255), CONSTRAINT client_pkey PRIMARY KEY (client_id))]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:473) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:80) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:182) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1176) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:764) ~[liquibase-core-4.27.0.jar:na]
+	... 58 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: отношение "client" уже существует
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312) ~[postgresql-42.7.4.jar:42.7.4]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:467) ~[liquibase-core-4.27.0.jar:na]
+	... 63 common frames omitted
+
+2024-12-18T14:59:28.907+04:00  INFO 17780 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 17780 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
+2024-12-18T14:59:28.911+04:00 DEBUG 17780 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-18T14:59:28.914+04:00  INFO 17780 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T14:59:30.782+04:00  INFO 17780 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T14:59:30.914+04:00  INFO 17780 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 114 ms. Found 3 JPA repository interfaces.
+2024-12-18T14:59:31.270+04:00  INFO 17780 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8fa3d760-9c50-3f3a-92f4-9de1eca85cd5
+2024-12-18T14:59:31.962+04:00  INFO 17780 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-18T14:59:31.981+04:00  INFO 17780 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T14:59:31.982+04:00  INFO 17780 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-18T14:59:32.082+04:00  INFO 17780 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T14:59:32.083+04:00  INFO 17780 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3044 ms
+2024-12-18T14:59:32.367+04:00  INFO 17780 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-18T14:59:32.773+04:00  INFO 17780 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33ec2c0c
+2024-12-18T14:59:32.776+04:00  INFO 17780 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-18T14:59:33.085+04:00  INFO 17780 --- [deal] [main] liquibase.database                       : Set default schema name to public
+2024-12-18T14:59:33.853+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2024-12-18T14:59:33.921+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T14:59:34.078+04:00  INFO 17780 --- [deal] [main] liquibase.lockservice                    : Successfully acquired change log lock
+2024-12-18T14:59:34.081+04:00  INFO 17780 --- [deal] [main] liquibase.command                        : Using deploymentId: 4519574081
+2024-12-18T14:59:34.084+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T14:59:34.134+04:00  INFO 17780 --- [deal] [main] liquibase.ui                             : Running Changeset: db/changelog/db.changelog-client.xml::1::AnutaVacsh
+2024-12-18T14:59:34.155+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : Table client created
+2024-12-18T14:59:34.158+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-client.xml::1::AnutaVacsh ran successfully in 22ms
+2024-12-18T14:59:34.170+04:00  INFO 17780 --- [deal] [main] liquibase.ui                             : Running Changeset: db/changelog/db.changelog-credit.xml::2::AnutaVacsh
+2024-12-18T14:59:34.188+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : Table credit created
+2024-12-18T14:59:34.189+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-credit.xml::2::AnutaVacsh ran successfully in 18ms
+2024-12-18T14:59:34.199+04:00  INFO 17780 --- [deal] [main] liquibase.ui                             : Running Changeset: db/changelog/db.changelog-statements.xml::3::AnutaVacsh
+2024-12-18T14:59:34.216+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : Table statements created
+2024-12-18T14:59:34.231+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : Foreign key constraint added to statements (client_id)
+2024-12-18T14:59:34.234+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : Foreign key constraint added to statements (credit_id)
+2024-12-18T14:59:34.235+04:00  INFO 17780 --- [deal] [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-statements.xml::3::AnutaVacsh ran successfully in 35ms
+2024-12-18T14:59:34.249+04:00  INFO 17780 --- [deal] [main] liquibase.util                           : UPDATE SUMMARY
+2024-12-18T14:59:34.250+04:00  INFO 17780 --- [deal] [main] liquibase.util                           : Run:                          3
+2024-12-18T14:59:34.250+04:00  INFO 17780 --- [deal] [main] liquibase.util                           : Previously run:               0
+2024-12-18T14:59:34.250+04:00  INFO 17780 --- [deal] [main] liquibase.util                           : Filtered out:                 0
+2024-12-18T14:59:34.250+04:00  INFO 17780 --- [deal] [main] liquibase.util                           : -------------------------------
+2024-12-18T14:59:34.250+04:00  INFO 17780 --- [deal] [main] liquibase.util                           : Total change sets:            3
+2024-12-18T14:59:34.252+04:00  INFO 17780 --- [deal] [main] liquibase.util                           : Update summary generated
+2024-12-18T14:59:34.257+04:00  INFO 17780 --- [deal] [main] liquibase.command                        : Update command completed successfully.
+2024-12-18T14:59:34.258+04:00  INFO 17780 --- [deal] [main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 3
+2024-12-18T14:59:34.263+04:00  INFO 17780 --- [deal] [main] liquibase.lockservice                    : Successfully released change log lock
+2024-12-18T14:59:34.266+04:00  INFO 17780 --- [deal] [main] liquibase.command                        : Command execution complete
+2024-12-18T14:59:34.479+04:00  INFO 17780 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-18T14:59:34.630+04:00  INFO 17780 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-18T14:59:34.715+04:00  INFO 17780 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-18T14:59:35.275+04:00  INFO 17780 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T14:59:36.586+04:00  INFO 17780 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-18T14:59:36.693+04:00  INFO 17780 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T14:59:37.016+04:00  WARN 17780 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T14:59:38.433+04:00  INFO 17780 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-12-18T14:59:38.453+04:00  INFO 17780 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Started DealApplication in 10.395 seconds (process running for 11.092)
+2024-12-18T15:01:17.401+04:00  INFO 17780 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T15:01:17.406+04:00  INFO 17780 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-18T15:01:17.416+04:00  INFO 17780 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-18T15:02:17.608+04:00  INFO 11692 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 11692 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
+2024-12-18T15:02:17.610+04:00 DEBUG 11692 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-18T15:02:17.611+04:00  INFO 11692 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T15:02:19.554+04:00  INFO 11692 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T15:02:19.665+04:00  INFO 11692 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 3 JPA repository interfaces.
+2024-12-18T15:02:19.998+04:00  INFO 11692 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8fa3d760-9c50-3f3a-92f4-9de1eca85cd5
+2024-12-18T15:02:20.829+04:00  INFO 11692 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-18T15:02:20.858+04:00  INFO 11692 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T15:02:20.859+04:00  INFO 11692 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-18T15:02:20.961+04:00  INFO 11692 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T15:02:20.961+04:00  INFO 11692 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3218 ms
+2024-12-18T15:02:21.319+04:00  INFO 11692 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-18T15:02:21.776+04:00  INFO 11692 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7c588adc
+2024-12-18T15:02:21.780+04:00  INFO 11692 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-18T15:02:22.088+04:00  INFO 11692 --- [deal] [main] liquibase.database                       : Set default schema name to public
+2024-12-18T15:02:22.939+04:00  INFO 11692 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T15:02:23.011+04:00  INFO 11692 --- [deal] [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2024-12-18T15:02:23.014+04:00  INFO 11692 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T15:02:23.034+04:00  INFO 11692 --- [deal] [main] liquibase.util                           : UPDATE SUMMARY
+2024-12-18T15:02:23.035+04:00  INFO 11692 --- [deal] [main] liquibase.util                           : Run:                          0
+2024-12-18T15:02:23.035+04:00  INFO 11692 --- [deal] [main] liquibase.util                           : Previously run:               3
+2024-12-18T15:02:23.035+04:00  INFO 11692 --- [deal] [main] liquibase.util                           : Filtered out:                 0
+2024-12-18T15:02:23.035+04:00  INFO 11692 --- [deal] [main] liquibase.util                           : -------------------------------
+2024-12-18T15:02:23.035+04:00  INFO 11692 --- [deal] [main] liquibase.util                           : Total change sets:            3
+2024-12-18T15:02:23.037+04:00  INFO 11692 --- [deal] [main] liquibase.util                           : Update summary generated
+2024-12-18T15:02:23.075+04:00  INFO 11692 --- [deal] [main] liquibase.lockservice                    : Successfully released change log lock
+2024-12-18T15:02:23.078+04:00  INFO 11692 --- [deal] [main] liquibase.command                        : Command execution complete
+2024-12-18T15:02:23.249+04:00  INFO 11692 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-18T15:02:23.368+04:00  INFO 11692 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-18T15:02:23.430+04:00  INFO 11692 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-18T15:02:24.018+04:00  INFO 11692 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T15:02:25.812+04:00  INFO 11692 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-18T15:02:25.889+04:00  INFO 11692 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T15:02:26.305+04:00  WARN 11692 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T15:02:28.130+04:00  INFO 11692 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-12-18T15:02:28.157+04:00  INFO 11692 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Started DealApplication in 11.633 seconds (process running for 12.485)
+2024-12-18T15:07:36.726+04:00  INFO 11692 --- [deal] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-18T15:07:36.729+04:00  INFO 11692 --- [deal] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-18T15:07:36.753+04:00  INFO 11692 --- [deal] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 23 ms
+2024-12-18T15:07:37.088+04:00 DEBUG 11692 --- [deal] [http-nio-8081-exec-1] r.vaschenko.deal.services.ClientService  : save client Client(clientId=null, lastName=Doe, firstName=John, middleName=Ivanovich, birthdate=1990-05-01, email=example@example.com, gender=null, maritalStatus=null, dependentAmount=null, accountNumber=null)
+2024-12-18T15:07:37.222+04:00 DEBUG 11692 --- [deal] [http-nio-8081-exec-1] r.v.deal.services.StatementService       : save statement: Statement(statementId=null, status=PREAPPROVAL, creationDate=2024-12-18T15:07:37.222897200, signDate=null, sesCode=null)
+2024-12-18T15:07:37.260+04:00  WARN 11692 --- [deal] [http-nio-8081-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23502
+2024-12-18T15:07:37.260+04:00 ERROR 11692 --- [deal] [http-nio-8081-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ОШИБКА: значение NULL в столбце "credit_id" отношения "statements" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (e15d7465-8397-4556-a9e5-eb1eda8b98ef, 73f8af73-f8e8-4f77-884e-8f75fc2f6b32, null, PREAPPROVAL, 2024-12-18 15:07:37.222897, null, null, null, [{"time": [2024, 12, 18, 15, 7, 37, 222897200], "type": "AUTOMAT...).
+2024-12-18T15:08:27.423+04:00  INFO 11692 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T15:08:27.429+04:00  INFO 11692 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-18T15:08:27.442+04:00  INFO 11692 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-18T15:09:23.204+04:00  INFO 14332 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 14332 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
+2024-12-18T15:09:23.207+04:00 DEBUG 14332 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-18T15:09:23.209+04:00  INFO 14332 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T15:09:24.934+04:00  INFO 14332 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T15:09:25.080+04:00  INFO 14332 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124 ms. Found 3 JPA repository interfaces.
+2024-12-18T15:09:25.456+04:00  INFO 14332 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8fa3d760-9c50-3f3a-92f4-9de1eca85cd5
+2024-12-18T15:09:26.223+04:00  INFO 14332 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-18T15:09:26.254+04:00  INFO 14332 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T15:09:26.255+04:00  INFO 14332 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-18T15:09:26.361+04:00  INFO 14332 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T15:09:26.362+04:00  INFO 14332 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3033 ms
+2024-12-18T15:09:26.640+04:00  INFO 14332 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-18T15:09:26.982+04:00  INFO 14332 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4ef18604
+2024-12-18T15:09:26.985+04:00  INFO 14332 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-18T15:09:27.313+04:00  INFO 14332 --- [deal] [main] liquibase.database                       : Set default schema name to public
+2024-12-18T15:09:28.207+04:00  INFO 14332 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T15:09:28.287+04:00  INFO 14332 --- [deal] [main] liquibase.changelog                      : Change failed validation!
+2024-12-18T15:09:28.292+04:00  INFO 14332 --- [deal] [main] liquibase.command                        : Logging exception.
+2024-12-18T15:09:28.293+04:00  INFO 14332 --- [deal] [main] liquibase.ui                             : ERROR: Exception Details
+2024-12-18T15:09:28.293+04:00  INFO 14332 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Class:  ValidationFailedException
+2024-12-18T15:09:28.294+04:00  INFO 14332 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Reason:  Validation Failed:
+     1 changesets check sum
+          db/changelog/db.changelog-statements.xml::3::AnutaVacsh was: 9:f82542b852bbca3df47e80a45ac86cb3 but is now: 9:71aad4d365134ab8d3bc181ad806f8b7
+
+2024-12-18T15:09:28.295+04:00  INFO 14332 --- [deal] [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.27.0
+2024-12-18T15:09:28.295+04:00  INFO 14332 --- [deal] [main] liquibase.command                        : Command execution complete
+2024-12-18T15:09:28.298+04:00  WARN 14332 --- [deal] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets check sum
+          db/changelog/db.changelog-statements.xml::3::AnutaVacsh was: 9:f82542b852bbca3df47e80a45ac86cb3 but is now: 9:71aad4d365134ab8d3bc181ad806f8b7
+
+2024-12-18T15:09:28.299+04:00  INFO 14332 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-18T15:09:28.335+04:00  INFO 14332 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-18T15:09:28.338+04:00  INFO 14332 --- [deal] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-18T15:09:28.353+04:00  INFO 14332 --- [deal] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-18T15:09:28.384+04:00 ERROR 14332 --- [deal] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets check sum
+          db/changelog/db.changelog-statements.xml::3::AnutaVacsh was: 9:f82542b852bbca3df47e80a45ac86cb3 but is now: 9:71aad4d365134ab8d3bc181ad806f8b7
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at ru.vaschenko.deal.DealApplication.main(DealApplication.java:15) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets check sum
+          db/changelog/db.changelog-statements.xml::3::AnutaVacsh was: 9:f82542b852bbca3df47e80a45ac86cb3 but is now: 9:71aad4d365134ab8d3bc181ad806f8b7
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 10 common frames omitted
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets check sum
+          db/changelog/db.changelog-statements.xml::3::AnutaVacsh was: 9:f82542b852bbca3df47e80a45ac86cb3 but is now: 9:71aad4d365134ab8d3bc181ad806f8b7
+
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259) ~[liquibase-core-4.27.0.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 17 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets check sum
+          db/changelog/db.changelog-statements.xml::3::AnutaVacsh was: 9:f82542b852bbca3df47e80a45ac86cb3 but is now: 9:71aad4d365134ab8d3bc181ad806f8b7
+
+	at liquibase.command.CommandScope.execute(CommandScope.java:257) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:1436) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:234) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:212) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:297) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:249) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:256) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242) ~[liquibase-core-4.27.0.jar:na]
+	... 19 common frames omitted
+Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets check sum
+          db/changelog/db.changelog-statements.xml::3::AnutaVacsh was: 9:f82542b852bbca3df47e80a45ac86cb3 but is now: 9:71aad4d365134ab8d3bc181ad806f8b7
+
+	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:358) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:92) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.command.CommandScope.execute(CommandScope.java:219) ~[liquibase-core-4.27.0.jar:na]
+	... 35 common frames omitted
+
+2024-12-18T15:20:12.930+04:00  INFO 12788 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Starting DealApplication using Java 22.0.2 with PID 12788 (C:\Users\Ann\Desktop\study\neoflex\creditBank\deal\target\classes started by Ann in C:\Users\Ann\Desktop\study\neoflex\creditBank\deal)
+2024-12-18T15:20:12.933+04:00 DEBUG 12788 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-18T15:20:12.934+04:00  INFO 12788 --- [deal] [main] ru.vaschenko.deal.DealApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T15:20:14.901+04:00  INFO 12788 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T15:20:15.032+04:00  INFO 12788 --- [deal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113 ms. Found 3 JPA repository interfaces.
+2024-12-18T15:20:15.367+04:00  INFO 12788 --- [deal] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8fa3d760-9c50-3f3a-92f4-9de1eca85cd5
+2024-12-18T15:20:16.133+04:00  INFO 12788 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-18T15:20:16.166+04:00  INFO 12788 --- [deal] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T15:20:16.166+04:00  INFO 12788 --- [deal] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-18T15:20:16.293+04:00  INFO 12788 --- [deal] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T15:20:16.293+04:00  INFO 12788 --- [deal] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3243 ms
+2024-12-18T15:20:16.592+04:00  INFO 12788 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-18T15:20:16.958+04:00  INFO 12788 --- [deal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3e5beab5
+2024-12-18T15:20:16.961+04:00  INFO 12788 --- [deal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-18T15:20:17.271+04:00  INFO 12788 --- [deal] [main] liquibase.database                       : Set default schema name to public
+2024-12-18T15:20:18.143+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2024-12-18T15:20:18.226+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T15:20:18.369+04:00  INFO 12788 --- [deal] [main] liquibase.lockservice                    : Successfully acquired change log lock
+2024-12-18T15:20:18.372+04:00  INFO 12788 --- [deal] [main] liquibase.command                        : Using deploymentId: 4520818371
+2024-12-18T15:20:18.376+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-12-18T15:20:18.425+04:00  INFO 12788 --- [deal] [main] liquibase.ui                             : Running Changeset: db/changelog/db.changelog-client.xml::1::AnutaVacsh
+2024-12-18T15:20:18.449+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : Table client created
+2024-12-18T15:20:18.451+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-client.xml::1::AnutaVacsh ran successfully in 24ms
+2024-12-18T15:20:18.464+04:00  INFO 12788 --- [deal] [main] liquibase.ui                             : Running Changeset: db/changelog/db.changelog-credit.xml::2::AnutaVacsh
+2024-12-18T15:20:18.479+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : Table credit created
+2024-12-18T15:20:18.480+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-credit.xml::2::AnutaVacsh ran successfully in 16ms
+2024-12-18T15:20:18.490+04:00  INFO 12788 --- [deal] [main] liquibase.ui                             : Running Changeset: db/changelog/db.changelog-statements.xml::3::AnutaVacsh
+2024-12-18T15:20:18.510+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : Table statements created
+2024-12-18T15:20:18.527+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : Foreign key constraint added to statements (client_id)
+2024-12-18T15:20:18.533+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : Foreign key constraint added to statements (credit_id)
+2024-12-18T15:20:18.535+04:00  INFO 12788 --- [deal] [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-statements.xml::3::AnutaVacsh ran successfully in 45ms
+2024-12-18T15:20:18.552+04:00  INFO 12788 --- [deal] [main] liquibase.util                           : UPDATE SUMMARY
+2024-12-18T15:20:18.553+04:00  INFO 12788 --- [deal] [main] liquibase.util                           : Run:                          3
+2024-12-18T15:20:18.553+04:00  INFO 12788 --- [deal] [main] liquibase.util                           : Previously run:               0
+2024-12-18T15:20:18.554+04:00  INFO 12788 --- [deal] [main] liquibase.util                           : Filtered out:                 0
+2024-12-18T15:20:18.554+04:00  INFO 12788 --- [deal] [main] liquibase.util                           : -------------------------------
+2024-12-18T15:20:18.554+04:00  INFO 12788 --- [deal] [main] liquibase.util                           : Total change sets:            3
+2024-12-18T15:20:18.555+04:00  INFO 12788 --- [deal] [main] liquibase.util                           : Update summary generated
+2024-12-18T15:20:18.563+04:00  INFO 12788 --- [deal] [main] liquibase.command                        : Update command completed successfully.
+2024-12-18T15:20:18.564+04:00  INFO 12788 --- [deal] [main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 3
+2024-12-18T15:20:18.569+04:00  INFO 12788 --- [deal] [main] liquibase.lockservice                    : Successfully released change log lock
+2024-12-18T15:20:18.572+04:00  INFO 12788 --- [deal] [main] liquibase.command                        : Command execution complete
+2024-12-18T15:20:18.799+04:00  INFO 12788 --- [deal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-18T15:20:18.937+04:00  INFO 12788 --- [deal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-18T15:20:19.011+04:00  INFO 12788 --- [deal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-18T15:20:19.542+04:00  INFO 12788 --- [deal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T15:20:20.943+04:00  INFO 12788 --- [deal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-18T15:20:21.058+04:00  INFO 12788 --- [deal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T15:20:21.346+04:00  WARN 12788 --- [deal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T15:20:22.873+04:00  INFO 12788 --- [deal] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-12-18T15:20:22.893+04:00  INFO 12788 --- [deal] [main] ru.vaschenko.deal.DealApplication        : Started DealApplication in 10.906 seconds (process running for 11.727)
+2024-12-18T15:20:48.072+04:00  INFO 12788 --- [deal] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-18T15:20:48.073+04:00  INFO 12788 --- [deal] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-18T15:20:48.074+04:00  INFO 12788 --- [deal] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-18T15:20:48.321+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-1] r.vaschenko.deal.services.ClientService  : save client Client(clientId=null, lastName=Doe, firstName=John, middleName=Ivanovich, birthdate=1990-05-01, email=example@example.com, gender=null, maritalStatus=null, dependentAmount=null, accountNumber=null)
+2024-12-18T15:20:48.449+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-1] r.v.deal.services.StatementService       : save statement: Statement(statementId=null, status=PREAPPROVAL, creationDate=2024-12-18T15:20:48.449844600, signDate=null, sesCode=null)
+2024-12-18T15:20:48.485+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-1] r.v.deal.client.CalculatorFacade         : Sending request to get loan offers with data LoanStatementRequestDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, email=example@example.com, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456)
+2024-12-18T15:20:48.754+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-1] r.v.deal.client.CalculatorFacade         : Response from calculator service received successfully, return data [LoanOfferDto(statementId=26164798-8966-48bd-bebd-ae694197aa5e, requestedAmount=50000, totalAmount=50000, term=24, monthlyPayment=2424.33, rate=15, isInsuranceEnabled=false, isSalaryClient=false), LoanOfferDto(statementId=8f82b2d5-a3d9-4999-b6ce-54629ba4e27e, requestedAmount=50000, totalAmount=150000, term=24, monthlyPayment=7201.93, rate=14, isInsuranceEnabled=true, isSalaryClient=false), LoanOfferDto(statementId=fd0851ee-a565-4d7b-809a-cb915de81f16, requestedAmount=50000, totalAmount=50000, term=24, monthlyPayment=2353.67, rate=12, isInsuranceEnabled=false, isSalaryClient=true), LoanOfferDto(statementId=daadac04-82d7-4668-b5f7-b770c3cbe14a, requestedAmount=50000, totalAmount=150000, term=24, monthlyPayment=6991.18, rate=11, isInsuranceEnabled=true, isSalaryClient=true)]
+2024-12-18T15:20:48.757+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-1] r.vaschenko.deal.services.DealServices   : Created list of offers: [LoanOfferDto(statementId=d70aae0d-c0ab-4bd7-b0b2-af47157d15d4, requestedAmount=50000, totalAmount=50000, term=24, monthlyPayment=2424.33, rate=15, isInsuranceEnabled=false, isSalaryClient=false), LoanOfferDto(statementId=d70aae0d-c0ab-4bd7-b0b2-af47157d15d4, requestedAmount=50000, totalAmount=150000, term=24, monthlyPayment=7201.93, rate=14, isInsuranceEnabled=true, isSalaryClient=false), LoanOfferDto(statementId=d70aae0d-c0ab-4bd7-b0b2-af47157d15d4, requestedAmount=50000, totalAmount=50000, term=24, monthlyPayment=2353.67, rate=12, isInsuranceEnabled=false, isSalaryClient=true), LoanOfferDto(statementId=d70aae0d-c0ab-4bd7-b0b2-af47157d15d4, requestedAmount=50000, totalAmount=150000, term=24, monthlyPayment=6991.18, rate=11, isInsuranceEnabled=true, isSalaryClient=true)]
+2024-12-18T15:21:38.425+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-2] r.v.deal.services.StatementService       : find statement by ID: d70aae0d-c0ab-4bd7-b0b2-af47157d15d4
+2024-12-18T15:21:38.554+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-2] r.v.deal.services.StatementService       : save statement: Statement(statementId=d70aae0d-c0ab-4bd7-b0b2-af47157d15d4, status=APPROVED, creationDate=2024-12-18T15:20:48.449845, signDate=null, sesCode=null)
+2024-12-18T15:22:41.993+04:00  INFO 12788 --- [deal] [http-nio-8081-exec-2] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1149 ms
+2024-12-18T15:23:02.519+04:00  INFO 12788 --- [deal] [http-nio-8081-exec-8] r.vaschenko.deal.services.DealServices   : The registration completion process has begun.
+2024-12-18T15:23:02.520+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-8] r.v.deal.services.StatementService       : find statement by ID: d70aae0d-c0ab-4bd7-b0b2-af47157d15d4
+2024-12-18T15:23:02.536+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-8] r.v.deal.services.StatementService       : save statement: Statement(statementId=d70aae0d-c0ab-4bd7-b0b2-af47157d15d4, status=CC_APPROVED, creationDate=2024-12-18T15:20:48.449845, signDate=null, sesCode=null)
+2024-12-18T15:23:02.544+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-8] r.v.deal.client.CalculatorFacade         : Sending request to get credit calculation with data: ScoringDataDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, gender=MALE, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456, passportIssueDate=2022-01-15, passportIssueBranch=770-001, maritalStatus=MARRIED, dependentAmount=2, employment=EmploymentDto(employmentStatus=UNEMPLOYED, employerINN=7712345678, salary=75000, position=WORKER, workExperienceTotal=120, workExperienceCurrent=24), accountNumber=40817810099910004312, isInsuranceEnabled=false, isSalaryClient=false)
+2024-12-18T15:23:02.705+04:00 ERROR 12788 --- [deal] [http-nio-8081-exec-8] r.v.deal.client.CalculatorFacade         : Request failed due to error: [400] during [POST] to [http://localhost:8080/calculator/calc] [CalculatorClient#getCredit(ScoringDataDto)]: [{"error":"Bad Request","message":"Loan denied: Unemployed","timestamp":"2024-12-18T15:23:02.6889442","status":400}]
+2024-12-18T15:23:02.707+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-8] r.v.deal.services.StatementService       : save statement: Statement(statementId=d70aae0d-c0ab-4bd7-b0b2-af47157d15d4, status=CC_DENIED, creationDate=2024-12-18T15:20:48.449845, signDate=null, sesCode=null)
+2024-12-18T15:24:38.854+04:00  INFO 12788 --- [deal] [http-nio-8081-exec-2] r.vaschenko.deal.services.DealServices   : The registration completion process has begun.
+2024-12-18T15:24:38.856+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-2] r.v.deal.services.StatementService       : find statement by ID: d70aae0d-c0ab-4bd7-b0b2-af47157d15d4
+2024-12-18T15:24:38.875+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-2] r.v.deal.services.StatementService       : save statement: Statement(statementId=d70aae0d-c0ab-4bd7-b0b2-af47157d15d4, status=CC_APPROVED, creationDate=2024-12-18T15:20:48.449845, signDate=null, sesCode=null)
+2024-12-18T15:24:38.881+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-2] r.v.deal.client.CalculatorFacade         : Sending request to get credit calculation with data: ScoringDataDto(amount=50000, term=24, firstName=John, lastName=Doe, middleName=Ivanovich, gender=MALE, birthdate=1990-05-01, passportSeries=1234, passportNumber=123456, passportIssueDate=2022-01-15, passportIssueBranch=770-001, maritalStatus=MARRIED, dependentAmount=2, employment=EmploymentDto(employmentStatus=EMPLOYED, employerINN=7712345678, salary=75000, position=WORKER, workExperienceTotal=120, workExperienceCurrent=24), accountNumber=40817810099910004312, isInsuranceEnabled=false, isSalaryClient=false)
+2024-12-18T15:24:38.924+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-2] r.v.deal.client.CalculatorFacade         : Response from calculator service received successfully, return data CreditDto(amount=50000, term=24, monthlyPayment=2284.24, rate=9, psk=9.6400, isInsuranceEnabled=false, isSalaryClient=false, paymentSchedule=[PaymentScheduleElementDto(number=1, date=2025-01-18, totalPayment=2284.24, interestPayment=375.00, debtPayment=1909.24, remainingDebt=48090.76), PaymentScheduleElementDto(number=2, date=2025-02-18, totalPayment=2284.24, interestPayment=360.68, debtPayment=1923.56, remainingDebt=46167.20), PaymentScheduleElementDto(number=3, date=2025-03-18, totalPayment=2284.24, interestPayment=346.25, debtPayment=1937.99, remainingDebt=44229.21), PaymentScheduleElementDto(number=4, date=2025-04-18, totalPayment=2284.24, interestPayment=331.72, debtPayment=1952.52, remainingDebt=42276.69), PaymentScheduleElementDto(number=5, date=2025-05-18, totalPayment=2284.24, interestPayment=317.08, debtPayment=1967.16, remainingDebt=40309.53), PaymentScheduleElementDto(number=6, date=2025-06-18, totalPayment=2284.24, interestPayment=302.32, debtPayment=1981.92, remainingDebt=38327.61), PaymentScheduleElementDto(number=7, date=2025-07-18, totalPayment=2284.24, interestPayment=287.46, debtPayment=1996.78, remainingDebt=36330.83), PaymentScheduleElementDto(number=8, date=2025-08-18, totalPayment=2284.24, interestPayment=272.48, debtPayment=2011.76, remainingDebt=34319.07), PaymentScheduleElementDto(number=9, date=2025-09-18, totalPayment=2284.24, interestPayment=257.39, debtPayment=2026.85, remainingDebt=32292.22), PaymentScheduleElementDto(number=10, date=2025-10-18, totalPayment=2284.24, interestPayment=242.19, debtPayment=2042.05, remainingDebt=30250.17), PaymentScheduleElementDto(number=11, date=2025-11-18, totalPayment=2284.24, interestPayment=226.88, debtPayment=2057.36, remainingDebt=28192.81), PaymentScheduleElementDto(number=12, date=2025-12-18, totalPayment=2284.24, interestPayment=211.45, debtPayment=2072.79, remainingDebt=26120.02), PaymentScheduleElementDto(number=13, date=2026-01-18, totalPayment=2284.24, interestPayment=195.90, debtPayment=2088.34, remainingDebt=24031.68), PaymentScheduleElementDto(number=14, date=2026-02-18, totalPayment=2284.24, interestPayment=180.24, debtPayment=2104.00, remainingDebt=21927.68), PaymentScheduleElementDto(number=15, date=2026-03-18, totalPayment=2284.24, interestPayment=164.46, debtPayment=2119.78, remainingDebt=19807.90), PaymentScheduleElementDto(number=16, date=2026-04-18, totalPayment=2284.24, interestPayment=148.56, debtPayment=2135.68, remainingDebt=17672.22), PaymentScheduleElementDto(number=17, date=2026-05-18, totalPayment=2284.24, interestPayment=132.54, debtPayment=2151.70, remainingDebt=15520.52), PaymentScheduleElementDto(number=18, date=2026-06-18, totalPayment=2284.24, interestPayment=116.40, debtPayment=2167.84, remainingDebt=13352.68), PaymentScheduleElementDto(number=19, date=2026-07-18, totalPayment=2284.24, interestPayment=100.15, debtPayment=2184.09, remainingDebt=11168.59), PaymentScheduleElementDto(number=20, date=2026-08-18, totalPayment=2284.24, interestPayment=83.76, debtPayment=2200.48, remainingDebt=8968.11), PaymentScheduleElementDto(number=21, date=2026-09-18, totalPayment=2284.24, interestPayment=67.26, debtPayment=2216.98, remainingDebt=6751.13), PaymentScheduleElementDto(number=22, date=2026-10-18, totalPayment=2284.24, interestPayment=50.63, debtPayment=2233.61, remainingDebt=4517.52), PaymentScheduleElementDto(number=23, date=2026-11-18, totalPayment=2284.24, interestPayment=33.88, debtPayment=2250.36, remainingDebt=2267.16), PaymentScheduleElementDto(number=24, date=2026-12-18, totalPayment=2284.24, interestPayment=17.00, debtPayment=2267.24, remainingDebt=-0.08)])
+2024-12-18T15:24:38.926+04:00 DEBUG 12788 --- [deal] [http-nio-8081-exec-2] r.vaschenko.deal.services.CreditService  : safe credit Credit(creditId=null, amount=50000, term=24, monthlyPayment=2284.24, rate=9, psk=9.6400, insuranceEnabled=false, salaryClient=false, creditStatus=CALCULATED)
+2024-12-18T15:27:23.342+04:00  INFO 12788 --- [deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T15:27:23.346+04:00  INFO 12788 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-18T15:27:23.357+04:00  INFO 12788 --- [deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
