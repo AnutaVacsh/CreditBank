@@ -18,6 +18,16 @@ import java.util.function.Supplier;
 public class DealFacade implements DealClient {
     private final DealClient dealClient;
 
+    /**
+     * Отправляет запрос на получение списка кредитных предложений в микросервис Deal.
+     * <p>
+     * Метод обрабатывает {@link LoanStatementRequestDto} и возвращает список {@link LoanOfferDto},
+     * полученный от микросервиса Deal.
+     * </p>
+     *
+     * @param loanStatementRequestDto данные для прескоринга заявки на кредит
+     * @return список кредитных предложений {@link LoanOfferDto}
+     */
     @Override
     @FeignRetryable
     public List<LoanOfferDto> getLoanOffers(LoanStatementRequestDto loanStatementRequestDto) {
@@ -25,6 +35,15 @@ public class DealFacade implements DealClient {
         return executeRequest(() -> dealClient.getLoanOffers(loanStatementRequestDto));
     }
 
+    /**
+     * Отправляет запрос на выбор кредитного предложения в микросервис Deal.
+     * <p>
+     * Метод принимает {@link LoanOfferDto}, который передается в микросервис Deal
+     * для фиксации выбранного предложения.
+     * </p>
+     *
+     * @param loanOfferDto данные выбранного кредитного предложения
+     */
     @Override
     @FeignRetryable
     public void selectOffer(LoanOfferDto loanOfferDto) {

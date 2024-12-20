@@ -15,11 +15,22 @@ import java.util.List;
 public class StatementService {
     private final DealFacade dealFacade;
 
+    /**
+     * Выполняет процесс прескоринга для расчета списка кредитных предложений.
+     *
+     * @param loanStatementRequestDto данные для прескоринга заявки на кредит
+     * @return список кредитных предложений {@link LoanOfferDto}
+     */
     public List<LoanOfferDto> calculateLoanOffers(LoanStatementRequestDto loanStatementRequestDto) {
         log.info("Starting loan calculation process");
         return dealFacade.getLoanOffers(loanStatementRequestDto);
     }
 
+    /**
+     * Выбирает одно из предложений по заявке на кредит.
+     *
+     * @param loanOfferDto данные выбранного кредитного предложения
+     */
     public void selectOffer(LoanOfferDto loanOfferDto) {
         log.info("Starting offer selection process for statementId={}", loanOfferDto.getStatementId());
         dealFacade.selectOffer(loanOfferDto);
