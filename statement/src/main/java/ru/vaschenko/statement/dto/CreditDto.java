@@ -42,7 +42,6 @@ public class CreditDto {
   private Boolean isSalaryClient;
 
   @JsonProperty("payment_schedule")
-  @Schema(
-      description = "График платежей")
+  @Schema(description = "График платежей")
   private List<PaymentScheduleElementDto> paymentSchedule;
 }

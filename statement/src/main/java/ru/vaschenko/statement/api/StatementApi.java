@@ -30,7 +30,7 @@ public interface StatementApi {
     })
     List<LoanOfferDto> calculateLoanOffers(@RequestBody @Valid LoanStatementRequestDto loanStatementRequestDto);
 
-    @PostMapping("/offer")
+    @PostMapping(ApiPath.OFFER)
     @Operation(
             summary = "Select a credit offer",
             description = "Allows the selection of one credit offer"

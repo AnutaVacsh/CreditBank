@@ -1,31 +1,25 @@
-package ru.vaschenko.deal.controllers.handlers;
+package ru.vaschenko.statement.controllers.handlers;
 
-import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import ru.vaschenko.deal.exception.PrescoringException;
-import ru.vaschenko.deal.exception.ScoringCalculationException;
+
+import java.time.LocalDateTime;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
   /**
-   * Обрабатывает исключения типа ScoringCalculationException, PrescoringException и
-   * IllegalArgumentException.
+   * Обрабатывает исключения типа IllegalArgumentException.
    *
    * @param ex выброшенное исключение.
    * @return ответ с сообщением об ошибке и статусом BAD_REQUEST.
    */
-  @ExceptionHandler({
-    ScoringCalculationException.class,
-    PrescoringException.class,
-    IllegalArgumentException.class
-  })
+  @ExceptionHandler(IllegalArgumentException.class)
   public ResponseEntity<Map<String, Object>> handleScoringCalculationException(Exception ex) {
     return buildErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST);
   }

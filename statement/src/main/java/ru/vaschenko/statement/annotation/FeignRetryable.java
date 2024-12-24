@@ -1,4 +1,4 @@
-package ru.vaschenko.deal.annotation;
+package ru.vaschenko.statement.annotation;
 
 import feign.FeignException;
 import org.springframework.retry.annotation.Backoff;
