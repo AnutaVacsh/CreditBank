@@ -65,30 +65,3 @@ public class DealFacade implements DealClient {
         }
     }
 }
-
-
-//    @Override
-//    @FeignRetryable
-//    public List<LoanOfferDto> getLoanOffers(LoanStatementRequestDto loanStatementRequestDto) {
-//        log.debug("Sending request to get loan offers with data {}", loanStatementRequestDto);
-//        return executeRequest(() -> dealClient.getLoanOffers(loanStatementRequestDto));
-//    }
-//
-//    @Override
-//    public void selectOffer(LoanOfferDto loanOfferDto) {
-//        log.debug("Sending request to select offer with data: {}", loanOfferDto);
-//        dealClient.selectOffer(loanOfferDto);
-//        return executeRequest(() -> dealClient.selectOffer(loanOfferDto));
-//    }
-//
-//    private <T> T executeRequest(Supplier<T> executor) {
-//        try {
-//            T result = executor.get();
-//            log.debug("Response from deal service received successfully, return data {}", result);
-//            return result;
-//        } catch (FeignException e) {
-//            log.error("Request failed due to error: {}", e.getMessage());
-//            throw e;
-//        }
-//    }
-//}

@@ -1,7 +1,6 @@
 package ru.vaschenko.deal.controllers.handlers;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
@@ -62,11 +61,12 @@ public class GlobalExceptionHandler {
 
   private ResponseEntity<Map<String, Object>> buildErrorResponse(
       String message, HttpStatus status) {
-    Map<String, Object> errorDetails = new HashMap<>();
-    errorDetails.put("timestamp", LocalDateTime.now());
-    errorDetails.put("status", status.value());
-    errorDetails.put("error", status.getReasonPhrase());
-    errorDetails.put("message", message);
+    Map<String, Object> errorDetails =
+        Map.of(
+            "timestamp", LocalDateTime.now(),
+            "status", status.value(),
+            "error", status.getReasonPhrase(),
+            "message", message);
 
     return new ResponseEntity<>(errorDetails, status);
   }

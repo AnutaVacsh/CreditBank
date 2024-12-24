@@ -5,16 +5,17 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
 
+<!--    Credit-->
     <changeSet id="2" author="AnutaVacsh">
         <createTable tableName="credit">
             <column name="credit_id" type="UUID">
-                <constraints primaryKey="true" nullable="false"/>
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_credit_credit_id"/>
             </column>
-            <column name="amount" type="DECIMAL(19,2)"/>
+            <column name="amount" type="NUMERIC"/>
             <column name="term" type="INTEGER"/>
-            <column name="monthly_payment" type="DECIMAL(19,2)"/>
-            <column name="rate" type="DECIMAL(19,2)"/>
-            <column name="psk" type="DECIMAL(19,2)"/>
+            <column name="monthly_payment" type="NUMERIC"/>
+            <column name="rate" type="NUMERIC"/>
+            <column name="psk" type="NUMERIC"/>
             <column name="payment_schedule" type="JSONB"/>
             <column name="insurance_enabled" type="BOOLEAN"/>
             <column name="salary_client" type="BOOLEAN"/>

@@ -1,5 +1,7 @@
 package ru.vaschenko.statement.controllers;
 
+import org.jeasy.random.EasyRandom;
+import org.jeasy.random.EasyRandomParameters;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,27 +34,13 @@ class StatementControllerTest {
 
     @BeforeEach
     void setUp() {
-        loanStatementRequestDto = LoanStatementRequestDto.builder()
-                .amount(BigDecimal.valueOf(50000))
-                .term(24)
-                .firstName("John")
-                .lastName("Doe")
-                .middleName("Ivanovich")
-                .email("example@example.com")
-                .birthdate(LocalDate.of(1990, 5, 1))
-                .passportSeries("1234")
-                .passportNumber("123456")
-                .build();
+        EasyRandomParameters parameters = new EasyRandomParameters()
+                .randomize(BigDecimal.class, () -> BigDecimal.valueOf(50000))
+                .randomize(String.class, () -> "Jon");
 
-        loanOfferDto = LoanOfferDto.builder()
-                .requestedAmount(BigDecimal.valueOf(500000))
-                .totalAmount(BigDecimal.valueOf(600000))
-                .term(36)
-                .monthlyPayment(BigDecimal.valueOf(16666.67))
-                .rate(BigDecimal.valueOf(11))
-                .isInsuranceEnabled(true)
-                .isSalaryClient(false)
-                .build();
+        EasyRandom easyRandom = new EasyRandom(parameters);
+        loanStatementRequestDto = easyRandom.nextObject(LoanStatementRequestDto.class);
+        loanOfferDto = easyRandom.nextObject(LoanOfferDto.class);
     }
 
     @Test
