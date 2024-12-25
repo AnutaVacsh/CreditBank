@@ -34,6 +34,8 @@
 - Swagger
 - MapStruct
 - PostgreSQL
+- Liquibase
+- Apache Kafka
 
 ## Требования для запуска
 

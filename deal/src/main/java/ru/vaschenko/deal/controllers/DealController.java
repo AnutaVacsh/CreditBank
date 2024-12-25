@@ -34,4 +34,33 @@ public class DealController implements DealApi {
       UUID statementId, FinishRegistrationRequestDto finishRegistrationRequestDto) {
     dealServices.calculate(statementId, finishRegistrationRequestDto);
   }
+
+  @Override
+  public void sendCodeDocument(UUID statementId) {
+    dealServices.sendCodeDocument(statementId);
+  }
+
+  @Override
+  public void signCodeDocument(UUID statementId) {
+    dealServices.signCodeDocument(statementId);
+  }
+
+  @Override
+  public void codeDocument(UUID statementId, String sesCode) {
+
+  }
+//  @Override
+//  public void createDocument(UUID statementId) {
+//    dealServices.sendCodeDocument(statementId);
+//  }
+//
+//  @Override
+//  public void sendCodeDocument(UUID statementId) {
+//    dealServices.sendCodeDocument(statementId);
+//  }
+//
+//  @Override
+//  public void signCodeDocument(UUID statementId, String sesCode) {
+//    dealServices.codeDocument(statementId, sesCode);
+//  }
 }

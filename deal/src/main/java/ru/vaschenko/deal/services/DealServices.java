@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.vaschenko.deal.dto.*;
+import ru.vaschenko.deal.exception.InvalidSesCode;
 import ru.vaschenko.deal.exception.PrescoringException;
 import ru.vaschenko.deal.exception.ScoringCalculationException;
 import ru.vaschenko.deal.mapping.CreditMapper;
@@ -15,6 +16,7 @@ import ru.vaschenko.deal.models.Client;
 import ru.vaschenko.deal.models.Credit;
 import ru.vaschenko.deal.models.Statement;
 import ru.vaschenko.deal.models.enams.ApplicationStatus;
+import ru.vaschenko.deal.models.enams.ChangeType;
 import ru.vaschenko.deal.models.enams.CreditStatus;
 
 @Slf4j
@@ -27,6 +29,7 @@ public class DealServices {
   private final CalculatorService calculatorService;
   private final ScoringDataMapper scoringDataMapper;
   private final CreditMapper creditMapper;
+  private final MessageService messageService;
 
   /**
    * Создаёт заявку на основе предоставленных данных, взаимодействует с микросервисом Калькулятор
@@ -62,6 +65,8 @@ public class DealServices {
     statement.setStatus(ApplicationStatus.APPROVED);
     statement.setAppliedOffer(loanOfferDto);
     statementService.saveStatement(statement);
+
+    messageService.finishRegistration(statement);
   }
 
   /**
@@ -85,5 +90,51 @@ public class DealServices {
     Credit credit = creditMapper.toCredit(creditDto);
     credit.setCreditStatus(CreditStatus.CALCULATED);
     creditService.safeCredit(credit);
+
+    messageService.createDocument(statement);
+  }
+
+  public void sendCodeDocument(UUID statementId) {
+    Statement statement = statementService.findStatementById(statementId);
+    statement.setStatus(ApplicationStatus.PREPARE_DOCUMENTS, ChangeType.MANUAL);
+    log.info("Update statement {} with status PREPARE_DOCUMENTS", statement.getStatementId());
+    statementService.saveStatement(statement);
+
+    messageService.sendCodeDocument(statement);
+
+    // update status documents_created
+  }
+
+  public void signCodeDocument(UUID statementId) {
+    Statement statement = statementService.findStatementById(statementId);
+    UUID sesCode = UUID.randomUUID();
+    statement.setSesCode(sesCode.toString());
+    log.info("Update statement {} with sesCode {}", statement.getStatementId(), sesCode);
+    statementService.saveStatement(statement);
+
+    messageService.signCodeDocument(statement);
+  }
+
+  public void codeDocument(UUID statementId, String sesCode) {
+    Statement statement = statementService.findStatementById(statementId);
+
+    statement.setStatus(ApplicationStatus.DOCUMENT_SIGNED, ChangeType.MANUAL);
+    log.info("Update statement {} with status DOCUMENT_SIGNED", statement.getStatementId());
+    statementService.saveStatement(statement);
+
+    if (!sesCode.equals(statement.getSesCode())) {
+      throw new InvalidSesCode("Invalid ses code = " + sesCode);
+    }
+    log.info("verification of the ses code: successful");
+
+    statement.getCredit().setCreditStatus(CreditStatus.ISSUED);
+    log.info("Update credit {} with status ISSUED", statement.getCredit().getCreditId());
+    creditService.safeCredit(statement.getCredit());
+
+    statement.setStatus(ApplicationStatus.CREDIT_ISSUED, ChangeType.MANUAL);
+    log.info("Update statement {} with status CREDIT_ISSUED", statement.getStatementId());
+    statementService.saveStatement(statement);
+
+    messageService.codeDocument(statement);
   }
 }
