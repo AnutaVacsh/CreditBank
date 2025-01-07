@@ -38,6 +38,7 @@
         <org.apache.maven.plugins.maven-surefire-plugin.version>2.22.2</org.apache.maven.plugins.maven-surefire-plugin.version>
         <org.springdoc.springdoc-openapi-starter-webmvc-ui.version>2.5.0</org.springdoc.springdoc-openapi-starter-webmvc-ui.version>
         <org.springframework.kafka.org.springframework.kafka.version>3.2.0</org.springframework.kafka.org.springframework.kafka.version>
+        <org.jeasy.easy-random-core.test.version>5.0.0</org.jeasy.easy-random-core.test.version>
     </properties>
     <dependencies>
         <dependency>
@@ -103,6 +104,12 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
             <version>${org.springframework.kafka.org.springframework.kafka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-random-core</artifactId>
+            <version>${org.jeasy.easy-random-core.test.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

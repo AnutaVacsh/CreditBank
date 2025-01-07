@@ -91,9 +91,17 @@ public class DealServices {
     credit.setCreditStatus(CreditStatus.CALCULATED);
     creditService.safeCredit(credit);
 
+    statement.setCredit(credit);
+    statementService.saveStatement(statement);
+
     messageService.createDocument(statement);
   }
 
+  /**
+   * Отправляет запрос на создание документа для заявки и обновляет статус заявки.
+   *
+   * @param statementId идентификатор заявки {@link UUID}.
+   */
   public void sendCodeDocument(UUID statementId) {
     Statement statement = statementService.findStatementById(statementId);
     statement.setStatus(ApplicationStatus.PREPARE_DOCUMENTS, ChangeType.MANUAL);
@@ -101,10 +109,13 @@ public class DealServices {
     statementService.saveStatement(statement);
 
     messageService.sendCodeDocument(statement);
-
-    // update status documents_created
   }
 
+  /**
+   * Отправляет запрос на подписание документа с кодом и обновляет статус заявки.
+   *
+   * @param statementId идентификатор заявки {@link UUID}.
+   */
   public void signCodeDocument(UUID statementId) {
     Statement statement = statementService.findStatementById(statementId);
     UUID sesCode = UUID.randomUUID();
@@ -112,9 +123,16 @@ public class DealServices {
     log.info("Update statement {} with sesCode {}", statement.getStatementId(), sesCode);
     statementService.saveStatement(statement);
 
-    messageService.signCodeDocument(statement);
+    messageService.signCodeDocument(statement, sesCode.toString());
   }
 
+  /**
+   * Подтверждает подписанный документ и обновляет статус кредита и заявки.
+   *
+   * @param statementId идентификатор заявки {@link UUID}.
+   * @param sesCode код подтверждения {@link String}.
+   * @throws InvalidSesCode если код подтверждения неверный.
+   */
   public void codeDocument(UUID statementId, String sesCode) {
     Statement statement = statementService.findStatementById(statementId);
 
@@ -136,5 +154,9 @@ public class DealServices {
     statementService.saveStatement(statement);
 
     messageService.codeDocument(statement);
+  }
+
+  public void updateStatus(UUID statementId, ApplicationStatus status) {
+    statementService.updateStatus(statementId, status);
   }
 }

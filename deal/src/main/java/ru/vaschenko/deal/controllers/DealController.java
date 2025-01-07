@@ -10,7 +10,9 @@ import ru.vaschenko.deal.api.DealApi;
 import ru.vaschenko.deal.dto.FinishRegistrationRequestDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
+import ru.vaschenko.deal.models.enams.ApplicationStatus;
 import ru.vaschenko.deal.services.DealServices;
+import ru.vaschenko.deal.services.StatementService;
 
 @Slf4j
 @RestController
@@ -47,20 +49,11 @@ public class DealController implements DealApi {
 
   @Override
   public void codeDocument(UUID statementId, String sesCode) {
-
+    dealServices.codeDocument(statementId, sesCode);
   }
-//  @Override
-//  public void createDocument(UUID statementId) {
-//    dealServices.sendCodeDocument(statementId);
-//  }
-//
-//  @Override
-//  public void sendCodeDocument(UUID statementId) {
-//    dealServices.sendCodeDocument(statementId);
-//  }
-//
-//  @Override
-//  public void signCodeDocument(UUID statementId, String sesCode) {
-//    dealServices.codeDocument(statementId, sesCode);
-//  }
+
+  @Override
+  public void documentCreated(UUID statementId, ApplicationStatus status) {
+    dealServices.updateStatus(statementId, status);
+  }
 }

@@ -1,12 +1,13 @@
 package ru.vaschenko.dossier.dto;
 
+import java.util.UUID;
+import lombok.Data;
 import ru.vaschenko.dossier.dto.enums.Theme;
 
-import java.util.UUID;
-
+@Data
 public class EmailMessage {
-  String address;
-  Theme theme;
-  UUID statementId;
-  String text;
+  private String address;
+  private Theme theme;
+  private UUID statementId;
+  private String text;
 }

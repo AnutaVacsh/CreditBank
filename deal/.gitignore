@@ -21,3 +21,4 @@ build/
 !**/src/test/**/build/
 
 /logs
+/Kafka

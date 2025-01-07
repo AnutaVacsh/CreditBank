@@ -8,6 +8,7 @@ public class ApiPath {
   public static final String STATEMENT = "/statement";
   public static final String OFFER_SELECT = "/offer/select";
   public static final String CALCULATE_ID = "/calculate/{statementId}";
+  public static final String STATEMENT_STATUS = "/admin/statement/{statementId}/status";
 
   public static final String DOCUMENT = "/document";
   public static final String DOCUMENT_ID = DOCUMENT + "/{statementId}";
