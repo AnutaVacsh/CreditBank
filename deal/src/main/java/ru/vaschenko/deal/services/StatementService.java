@@ -52,6 +52,13 @@ public class StatementService {
     log.debug("find statement by ID: {}", id);
     return statementRepositories
         .findById(id)
-        .orElseThrow(() -> new EntityNotFoundException("Заявка не найдена с ID: " + id));
+        .orElseThrow(() -> new EntityNotFoundException("Statement not found with id: " + id));
+  }
+
+  public void updateStatus(UUID statementId, ApplicationStatus status){
+    Statement statement = findStatementById(statementId);
+    statement.setStatus(status);
+    saveStatement(statement);
+    log.info("update statement status to {}", status);
   }
 }

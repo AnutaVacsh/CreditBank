@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Кредитный договор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2{
+            text-align: left;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+        .section{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<h1>Кредитный договор</h1>
+<p>Договор на оформление кредита с условиями, указанными ниже.</p>
+
+<div class="section">
+    <h2>Общие условия</h2>
+    <p><strong>Сумма кредита:</strong> <span th:text="${message.creditDto.amount}"></span> руб.</p>
+    <p><strong>Срок кредита:</strong> <span th:text="${message.creditDto.term}"></span> месяцев</p>
+    <p><strong>Ежемесячный платеж:</strong> <span th:text="${message.creditDto.monthlyPayment}"></span> руб.</p>
+    <p><strong>Процентная ставка:</strong> <span th:text="${message.creditDto.rate}"></span>%</p>
+    <p><strong>Полная стоимость кредита (ПСК):</strong> <span th:text="${message.creditDto.psk}"></span>%</p>
+    <p><strong>Наличие страховки:</strong> <span th:text="${message.creditDto.isInsuranceEnabled ? 'Да' : 'Нет'}"></span></p>
+    <p><strong>Зарплатный клиент:</strong> <span th:text="${message.creditDto.isSalaryClient ? 'Да' : 'Нет'}"></span></p>
+</div>
+
+<div class="section">
+    <h2>График платежей</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Дата платежа</th>
+            <th>Общая сумма</th>
+            <th>Проценты</th>
+            <th>Основной долг</th>
+            <th>Остаток долга</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="schedule : ${message.creditDto.paymentSchedule}">
+            <td>[[${schedule.number}]]</td>
+            <td>[[${schedule.date}]]</td>
+            <td>[[${schedule.totalPayment}]] руб.</td>
+            <td>[[${schedule.interestPayment}]] руб.</td>
+            <td>[[${schedule.debtPayment}]] руб.</td>
+            <td>[[${schedule.remainingDebt}]] руб.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="section">
+    <p>Клиент:    ________________________</p>
+    <p>Представитель банка:    ________________________</p>
+</div>
+</body>
+</html>

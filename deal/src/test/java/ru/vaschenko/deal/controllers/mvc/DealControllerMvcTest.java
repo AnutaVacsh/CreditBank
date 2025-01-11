@@ -1,6 +1,10 @@
 package ru.vaschenko.deal.controllers.mvc;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -89,5 +93,53 @@ class DealControllerMvcTest {
         .andExpect(status().isOk());
 
     verify(dealServices, times(1)).calculate(statementId, finishRegistrationRequestDto);
+  }
+
+  @Test
+  void testSendCodeDocument() throws Exception {
+    // Given
+    UUID statementId = UUID.randomUUID();
+    doNothing().when(dealServices).sendCodeDocument(statementId);
+
+    // When
+    mockMvc
+            .perform(post("/deal/document/" + statementId + "/send"))
+            .andExpect(status().isOk());
+
+    // Then
+    verify(dealServices, times(1)).sendCodeDocument(statementId);
+  }
+
+  @Test
+  void testSignCodeDocument() throws Exception {
+    // Given
+    UUID statementId = UUID.randomUUID();
+    doNothing().when(dealServices).signCodeDocument(statementId);
+
+    // When
+    mockMvc
+            .perform(post("/deal/document/" + statementId + "/sign"))
+            .andExpect(status().isOk());
+
+    // Then
+    verify(dealServices, times(1)).signCodeDocument(statementId);
+  }
+
+  @Test
+  void testCodeDocument() throws Exception {
+    // Given
+    UUID statementId = UUID.randomUUID();
+    String sesCode = "123456";
+    doNothing().when(dealServices).codeDocument(statementId, sesCode);
+
+    // When
+    mockMvc
+            .perform(
+                    post("/deal/document/" + statementId + "/code")
+                            .param("sesCode", sesCode))
+            .andExpect(status().isOk());
+
+    // Then
+    verify(dealServices, times(1)).codeDocument(statementId, sesCode);
   }
 }

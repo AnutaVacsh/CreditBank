@@ -16,6 +16,7 @@ import ru.vaschenko.deal.dto.ErrorMessageDto;
 import ru.vaschenko.deal.dto.FinishRegistrationRequestDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
+import ru.vaschenko.deal.models.enams.ApplicationStatus;
 import ru.vaschenko.deal.util.ApiPath;
 
 /** API for managing loan applications */
@@ -130,4 +131,70 @@ public interface DealApi {
   void calculate(
       @PathVariable UUID statementId,
       @RequestBody FinishRegistrationRequestDto finishRegistrationRequestDto);
+
+  @PostMapping(ApiPath.SEND)
+  @Operation(
+      summary = "Create a document",
+      description = "Creates a document for the specified statement ID.")
+  @ApiResponses(
+      value = {
+        @ApiResponse(responseCode = "200", description = "Document created successfully"),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Statement not found",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)),
+        @ApiResponse(
+            responseCode = "500",
+            description = "Server's error",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+      })
+  void sendCodeDocument(@PathVariable UUID statementId);
+
+  @PostMapping(ApiPath.SIGN)
+  @Operation(
+      summary = "Send code to sign a document",
+      description =
+          "Sends a code to the user for signing the document related to the specified statement ID.")
+  @ApiResponses(
+      value = {
+        @ApiResponse(responseCode = "200", description = "Code sent successfully"),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Statement not found",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)),
+        @ApiResponse(
+            responseCode = "500",
+            description = "Server's error",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+      })
+  void signCodeDocument(@PathVariable UUID statementId);
+
+  @PostMapping(ApiPath.CODE)
+  @Operation(
+      summary = "Sign a document with a code",
+      description =
+          "Allows signing a document using a session code for the specified statement ID.")
+  @ApiResponses(
+      value = {
+        @ApiResponse(responseCode = "200", description = "Document signed successfully"),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Statement not found",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)),
+        @ApiResponse(
+            responseCode = "400",
+            description = "Invalid session code",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)),
+        @ApiResponse(
+            responseCode = "500",
+            description = "Server's error",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+      })
+  void codeDocument(@PathVariable UUID statementId, @RequestParam String sesCode);
+
+  @PutMapping(ApiPath.STATEMENT_STATUS)
+  @Operation(
+      summary = "Update statement status",
+      description = "This endpoint updates the status of a statement")
+  void documentCreated(@PathVariable UUID statementId, @RequestParam ApplicationStatus status);
 }
