@@ -120,8 +120,14 @@ http://localhost:8081/swagger-ui/index.html.
 подписание документов
 ![code.png](img%2Fcode.png)
 
+сообщения, отправляемые на почту
+![mail.png](img%2Fmail.png)
+
 обновление статуса заявки
 ![updateStatus.png](img%2FupdateStatus.png)
 
-сообщения, отправляемые на почту
-![mail.png](img%2Fmail.png)
+получение заявки по id
+![statementId.png](img%2FstatementId.png)
+
+получение всех заявок
+![allStatement.png](img%2FallStatement.png)

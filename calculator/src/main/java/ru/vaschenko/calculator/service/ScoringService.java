@@ -142,7 +142,13 @@ public class ScoringService {
       BigDecimal debtPayment =
           monthlyPayment.subtract(interestPayment).setScale(2, RoundingMode.HALF_EVEN);
 
-      remainingDebt = remainingDebt.subtract(debtPayment).setScale(2, RoundingMode.HALF_EVEN);
+      if (i == term) {
+        debtPayment = remainingDebt;
+        monthlyPayment = interestPayment.add(debtPayment);
+        remainingDebt = BigDecimal.ZERO;
+      } else
+        remainingDebt = remainingDebt.subtract(debtPayment).setScale(2, RoundingMode.HALF_EVEN);
+
 
       PaymentScheduleElementDto elementDto =
           PaymentScheduleElementDto.builder()

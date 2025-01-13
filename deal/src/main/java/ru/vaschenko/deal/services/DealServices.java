@@ -64,6 +64,7 @@ public class DealServices {
     Statement statement = statementService.findStatementById(loanOfferDto.getStatementId());
     statement.setStatus(ApplicationStatus.APPROVED);
     statement.setAppliedOffer(loanOfferDto);
+
     statementService.saveStatement(statement);
 
     messageService.finishRegistration(statement);
@@ -154,9 +155,5 @@ public class DealServices {
     statementService.saveStatement(statement);
 
     messageService.codeDocument(statement);
-  }
-
-  public void updateStatus(UUID statementId, ApplicationStatus status) {
-    statementService.updateStatus(statementId, status);
   }
 }
