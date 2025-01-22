@@ -16,7 +16,6 @@ import ru.vaschenko.deal.dto.ErrorMessageDto;
 import ru.vaschenko.deal.dto.FinishRegistrationRequestDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
-import ru.vaschenko.deal.models.enams.ApplicationStatus;
 import ru.vaschenko.deal.util.ApiPath;
 
 /** API for managing loan applications */
@@ -191,10 +190,4 @@ public interface DealApi {
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
       })
   void codeDocument(@PathVariable UUID statementId, @RequestParam String sesCode);
-
-  @PutMapping(ApiPath.STATEMENT_STATUS)
-  @Operation(
-      summary = "Update statement status",
-      description = "This endpoint updates the status of a statement")
-  void documentCreated(@PathVariable UUID statementId, @RequestParam ApplicationStatus status);
 }

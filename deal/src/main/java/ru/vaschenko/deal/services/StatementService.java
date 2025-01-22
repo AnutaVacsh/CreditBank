@@ -2,6 +2,7 @@ package ru.vaschenko.deal.services;
 
 import jakarta.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,7 +49,7 @@ public class StatementService {
    * @return найденная заявка {@link Statement}.
    * @throws EntityNotFoundException если заявка с указанным идентификатором не найдена.
    */
-  protected Statement findStatementById(UUID id) {
+  public Statement findStatementById(UUID id) {
     log.debug("find statement by ID: {}", id);
     return statementRepositories
         .findById(id)
@@ -60,5 +61,13 @@ public class StatementService {
     statement.setStatus(status);
     saveStatement(statement);
     log.info("update statement status to {}", status);
+  }
+
+  public List<Statement> getAllStatement(){
+    log.info("get all statement");
+    return statementRepositories.findAll();
+//            .stream()
+//            .map(this::toDTO)
+//            .collect(Collectors.toList());
   }
 }

@@ -2,6 +2,7 @@ package ru.vaschenko.deal.mapping;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import ru.vaschenko.deal.dto.ClientDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
 import ru.vaschenko.deal.models.Client;
 
@@ -11,4 +12,6 @@ public interface ClientMapper {
   @Mapping(target = "passport.number", source = "passportNumber")
   @Mapping(target = "birthdate", source = "birthdate")
   Client toClient(LoanStatementRequestDto loanStatement);
+
+  ClientDto toClientDto(Client client);
 }

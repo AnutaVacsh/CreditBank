@@ -10,6 +10,7 @@ import ru.vaschenko.deal.api.DealApi;
 import ru.vaschenko.deal.dto.FinishRegistrationRequestDto;
 import ru.vaschenko.deal.dto.LoanOfferDto;
 import ru.vaschenko.deal.dto.LoanStatementRequestDto;
+import ru.vaschenko.deal.models.Statement;
 import ru.vaschenko.deal.models.enams.ApplicationStatus;
 import ru.vaschenko.deal.services.DealServices;
 import ru.vaschenko.deal.services.StatementService;
@@ -19,6 +20,7 @@ import ru.vaschenko.deal.services.StatementService;
 @RequiredArgsConstructor
 public class DealController implements DealApi {
   private final DealServices dealServices;
+  private final StatementService statementService;
 
   @Override
   public ResponseEntity<List<LoanOfferDto>> createStatement(
@@ -50,10 +52,5 @@ public class DealController implements DealApi {
   @Override
   public void codeDocument(UUID statementId, String sesCode) {
     dealServices.codeDocument(statementId, sesCode);
-  }
-
-  @Override
-  public void documentCreated(UUID statementId, ApplicationStatus status) {
-    dealServices.updateStatus(statementId, status);
   }
 }
