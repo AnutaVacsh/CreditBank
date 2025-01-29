@@ -1,0 +1,84 @@
+services:
+  gateway:
+    build:
+      context: ./gateway
+    env_file:
+      - .env
+    ports:
+      - '8084:8084'
+    depends_on:
+      - statement-mc
+      - deal-mc
+    networks:
+      - myNetwork
+
+  statement-mc:
+    build:
+      context: ./statement
+    env_file:
+      - .env
+    depends_on:
+      - deal-mc
+    networks:
+      - myNetwork
+
+  dossier-mc:
+    build:
+      context: ./dossier
+    env_file:
+      - .env
+    depends_on:
+      - kafka
+    networks:
+      - myNetwork
+
+  deal-mc:
+    build:
+      context: ./deal
+    env_file:
+      - .env
+    depends_on:
+      - postgres-db
+      - kafka
+    networks:
+      - myNetwork
+
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - '2181:2181'
+    env_file:
+      - .env
+    networks:
+      - myNetwork
+
+  kafka:
+    image: 'bitnami/kafka:latest'
+    user: root
+    ports:
+      - '29092:29092'
+    env_file:
+      - .env
+    volumes:
+      - ./Kafka:/bitnami/kafka/data
+    networks:
+      - myNetwork
+    depends_on:
+      - zookeeper
+
+  calculator-mc:
+    build:
+      context: ./calculator
+    networks:
+      - myNetwork
+
+  postgres-db:
+    image: postgres
+    env_file:
+      - .env
+    networks:
+      - myNetwork
+
+networks:
+  myNetwork:
+    driver: bridge
