@@ -1,7 +1,6 @@
 [![codecov](https://codecov.io/gh/AnutaVacsh/CreditBank/branch/master/graph/badge.svg?token=YOUR_TOKEN)](https://codecov.io/gh/AnutaVacsh/CreditBank)
 [![Java CI with Maven](https://github.com/AnutaVacsh/CreditBank/actions/workflows/maven.yml/badge.svg)](https://github.com/AnutaVacsh/CreditBank/actions/workflows/maven.yml)
 
-
 # Проектное задание: Java Development (осенний набор 2024)
 
 ## Логика работы всей системы
@@ -29,7 +28,6 @@
 10. Если полученный код совпадает с отправленным, МС Сделка выдает кредит (меняет статус сущности "Кредит" на ISSUED, а
     статус заявки на CREDIT_ISSUED)
 
-
 ## Стек технологий
 
 - Java 17
@@ -45,16 +43,19 @@
 - Apache Kafka
 
 ## Как запустить приложение
+
 ```bash
 git clone https://github.com/AnutaVacsh/CreditBank 
 ```
 
 Перейти в корень и собрать проект:
+
 ```bash
 docker-compose up
 ```
 
 Перейти на страницу
+
 ```bash
 ocalhost:8084/swagger-ui/index.html#
 ```
