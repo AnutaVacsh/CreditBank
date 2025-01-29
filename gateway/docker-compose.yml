@@ -1,0 +1,9 @@
+version: '3'
+services:
+  contact-service:
+    build:
+      context: ./
+    ports:
+      - '8084:8084'
+    environment:
+      - 'SPRING_PROFILES_ACTIVE=default'

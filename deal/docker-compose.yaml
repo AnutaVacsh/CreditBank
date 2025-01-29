@@ -1,6 +1,18 @@
-version: "3"
-
+version: '3'
 services:
+
+  deal-mc:
+    build:
+      context: ./
+    ports:
+      - '8081:8081'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db/creditBank
+      SPRING_KAFKA_BOOTSTRAPSERVERS: kafka:9092
+    depends_on:
+      - postgres-db
+      - kafka
+
   zookeeper:
     image: 'bitnami/zookeeper:latest'
     ports:
@@ -18,7 +30,7 @@ services:
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_LISTENERS=PLAINTEXT://:9092
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
     volumes:
@@ -27,6 +39,13 @@ services:
       - myNetwork
     depends_on:
       - zookeeper
+
+  postgres-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: creditBank
 
 networks:
   myNetwork:
