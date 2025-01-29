@@ -7,15 +7,14 @@ on:
     branches: [ "main" ]
 
 env:
-  DIRECTORY: calculator
-  PROJECT: calculator
-
+  MICROSERVICES: calculator, deal, dossier, gateway, statement
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        service: [calculator, deal, dossier, gateway, statement]
     steps:
       - uses: actions/checkout@v3
 
@@ -27,13 +26,13 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn -B package --file ${{ env.DIRECTORY }}/pom.xml
+        run: mvn -B package --file ${{ matrix.service }}/pom.xml
 
       - name: Run tests with coverage
-        run: mvn test --file ${{ env.DIRECTORY }}/pom.xml
+        run: mvn test --file ${{ matrix.service }}/pom.xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
-          file: ${{ env.DIRECTORY }}/target/site/jacoco/jacoco.xml
+          file: ${{ matrix.service }}/target/site/jacoco/jacoco.xml
           token: ${{ secrets.CODECOV_TOKEN }}
