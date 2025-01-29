@@ -1,5 +1,5 @@
 [![codecov](https://codecov.io/gh/AnutaVacsh/CreditBank/graph/badge.svg?token=W57XAMDC9Q)](https://codecov.io/gh/AnutaVacsh/CreditBank)
-[![Java CI with Maven](https://github.com/AnutaVacsh/CreditBank/actions/workflows/calculator.yml/badge.svg)](https://github.com/AnutaVacsh/CreditBank/actions/workflows/calculator.yml)
+[![Java CI with Maven](https://github.com/AnutaVacsh/CreditBank/actions/workflows/maven.yml/badge.svg)](https://github.com/AnutaVacsh/CreditBank/actions/workflows/maven.yml)
 
 # Проектное задание: Java Development (осенний набор 2024)
 
